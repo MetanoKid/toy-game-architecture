@@ -1,0 +1,10 @@
+# Ignore Visual Studio temporary files and build results
+
+**/Debug/
+**/Release/
+bin/
+
+*.suo
+*.user
+*.opensdf
+*.sdf
