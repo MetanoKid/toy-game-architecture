@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToyGameArchitecture", "Projects\Application\ToyGameArchitecture.vcxproj", "{23F9504F-AEA4-49C1-A024-08FE46F4382B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Classic version", "Projects\Classic\Classic version.vcxproj", "{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{23F9504F-AEA4-49C1-A024-08FE46F4382B}.Debug|Win32.Build.0 = Debug|Win32
 		{23F9504F-AEA4-49C1-A024-08FE46F4382B}.Release|Win32.ActiveCfg = Release|Win32
 		{23F9504F-AEA4-49C1-A024-08FE46F4382B}.Release|Win32.Build.0 = Release|Win32
+		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Debug|Win32.Build.0 = Debug|Win32
+		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Release|Win32.ActiveCfg = Release|Win32
+		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
