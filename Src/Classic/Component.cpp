@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "Messages/Message.h"
 #include "Application/Macros.h"
 
 namespace Classic {
@@ -33,7 +34,9 @@ namespace Classic {
 	void IComponent::doTick(float secs) {
 		// process messages
 		FOR_IT_CONST(TMessages, it, _messages) {
+			// process the message and release a reference from it
 			process(*it);
+			(*it)->releaseReference();
 		}
 
 		// now empty out message list, since we've processed them
@@ -55,20 +58,21 @@ namespace Classic {
 		_entity = entity;
 	}
 
-	bool IComponent::accept(CMessage *message) const {
+	bool IComponent::accept(Messages::CMessage *message) const {
 		// to be overriden by children components
 		return false;
 	}
 
-	void IComponent::process(CMessage *message) {
+	void IComponent::process(Messages::CMessage *message) {
 		// to be overriden by children components
 	}
 
-	bool IComponent::enqueueMessage(CMessage *message) {
+	bool IComponent::enqueueMessage(Messages::CMessage *message) {
 		bool accepted = accept(message);
 
 		if(accepted) {
-			// add message to list
+			// add a reference and add enqueue the message
+			message->addReference();
 			_messages.push_back(message);
 		}
 

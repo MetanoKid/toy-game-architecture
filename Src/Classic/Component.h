@@ -10,7 +10,10 @@ namespace Classic {
 	class CEntity;
 	class CLevelData;
 	class CLevel;
-	class CMessage;
+
+	namespace Messages {
+		class CMessage;
+	}
 
 	/**
 	Base class for components in this architecture.
@@ -23,7 +26,7 @@ namespace Classic {
 		/**
 		Alias for our list of messages to be processed.
 		*/
-		typedef std::vector<CMessage *> TMessages;
+		typedef std::vector<Messages::CMessage *> TMessages;
 
 		/**
 		List of messages left to be processed.
@@ -40,13 +43,13 @@ namespace Classic {
 		Tells whether or not a message is accepted by this component.
 		Must be overriden by children components if they want to say what they accept.
 		*/
-		virtual bool accept(CMessage *message) const;
+		virtual bool accept(Messages::CMessage *message) const;
 
 		/**
 		Processes a message this component accepts.
 		Must be overriden by children components to process those messages.
 		*/
-		virtual void process(CMessage *message);
+		virtual void process(Messages::CMessage *message);
 
 	public:
 		/**
@@ -102,7 +105,7 @@ namespace Classic {
 		/**
 		Tries to add a message to this component's queue of messages.
 		*/
-		bool enqueueMessage(CMessage *message);
+		bool enqueueMessage(Messages::CMessage *message);
 	};
 
 }

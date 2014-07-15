@@ -10,9 +10,12 @@ namespace Classic {
 
 	// forward declarations
 	class IComponent;
-	class CMessage;
 	class CLevel;
 	class CLevelData;
+
+	namespace Messages {
+		class CMessage;
+	}
 
 	/**
 	Game entities in this architecture are just component containers. Some common
@@ -122,7 +125,7 @@ namespace Classic {
 		If a component is informed, the message won't try to be sent to it.
 		This is the only way to communicate entities between them.
 		*/
-		bool sendMessage(CMessage *message, IComponent *emitter = 0);
+		bool sendMessage(Messages::CMessage *message, IComponent *emitter = 0);
 
 		/**
 		Gets the level in which this entity exists.

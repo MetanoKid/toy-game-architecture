@@ -75,10 +75,15 @@
     <ClInclude Include="..\..\Src\Classic\Component.h" />
     <ClInclude Include="..\..\Src\Classic\Entity.h" />
     <ClInclude Include="..\..\Src\Classic\EntityID.h" />
+    <ClInclude Include="..\..\Src\Classic\Messages\Message.h" />
+    <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h" />
+    <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Classic\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

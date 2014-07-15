@@ -77,7 +77,7 @@ namespace Classic {
 		_components.clear();
 	}
 
-	bool CEntity::sendMessage(CMessage *message, IComponent *emitter) {
+	bool CEntity::sendMessage(Messages::CMessage *message, IComponent *emitter) {
 		// we assume there are no entity-level messages, just component-level ones
 		// if we had, we'd have to process those messages here, before handing them
 		// in to components
