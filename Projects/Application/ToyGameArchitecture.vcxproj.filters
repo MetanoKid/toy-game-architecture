@@ -4,10 +4,18 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{3c171e91-25c3-4183-8a4b-ad01c97b1a46}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6e087bfd-b06a-447f-9be1-15b00a6704a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Application\ToyGameArchitecture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Src\Application\Macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

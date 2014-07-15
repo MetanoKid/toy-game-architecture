@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "Component.h"
 #include "Application/Macros.h"
 
 namespace Classic {
@@ -12,7 +13,20 @@ namespace Classic {
 	}
 
 	bool CEntity::spawn(const std::string &entityName, CLevelData *data, CLevel *level) {
+		// keep some entity-level information, like name, type or level
+		_name = entityName;
+		_level = level;
+		// _type = data->get<string>("type");
 
+		// now, spawn components
+		FOR_IT_CONST(TComponents, it, _components) {
+			// if any component's spawn fails, stop right away
+			if(!(*it)->spawn(entityName, data, level)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	bool CEntity::activate() {
@@ -20,8 +34,8 @@ namespace Classic {
 		_active = true;
 
 		// activate every component
-		FOR(TComponents, it, _components) {
-
+		FOR_IT_CONST(TComponents, it, _components) {
+			_active = (*it)->activate() || _active;
 		}
 
 		return _active;
@@ -29,26 +43,61 @@ namespace Classic {
 
 	void CEntity::deactivate() {
 		_active = false;
+
+		FOR_IT_CONST(TComponents, it, _components) {
+			(*it)->deactivate();
+		}
 	}
 
 	void CEntity::tick(float secs) {
-
+		FOR_IT_CONST(TComponents, it, _components) {
+			(*it)->doTick(secs);
+		}
 	}
 
 	void CEntity::addComponent(IComponent *component) {
-
+		_components.push_back(component);
+		component->setEntity(this);
 	}
 
 	void CEntity::removeComponent(IComponent *component) {
+		TComponents::const_iterator it = std::find(_components.begin(), _components.end(), component);
 
+		if(it != _components.end()) {
+			_components.erase(it);
+			component->setEntity(NULL);
+		}
 	}
 
 	void CEntity::destroyComponents() {
+		FOR_IT_CONST(TComponents, it, _components) {
+			delete(*it);
+		}
 
+		_components.clear();
 	}
 
-	bool CEntity::sendMessage(CMessage *message, IComponent *emitter = 0) {
+	bool CEntity::sendMessage(CMessage *message, IComponent *emitter) {
+		// we assume there are no entity-level messages, just component-level ones
+		// if we had, we'd have to process those messages here, before handing them
+		// in to components
 
+		// due to the nature of the messages in this architecture, we'll have to
+		// check if the message was enqueued by any component
+		bool enqueued = false;
+
+		FOR_IT_CONST(TComponents, it, _components) {
+			if(*it != emitter) {
+				enqueued = (*it)->enqueueMessage(message) || enqueued;
+			}
+		}
+
+		// if no component accepted the message, then we are safe to delete it
+		if(!enqueued) {
+			delete message;
+		}
+
+		return enqueued;
 	}
 
 	CLevel *CEntity::getLevel() const {

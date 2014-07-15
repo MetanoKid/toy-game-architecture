@@ -72,9 +72,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Classic\Component.h" />
     <ClInclude Include="..\..\Src\Classic\Entity.h" />
+    <ClInclude Include="..\..\Src\Classic\EntityID.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Classic\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
