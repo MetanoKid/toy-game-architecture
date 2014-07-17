@@ -138,6 +138,11 @@ namespace Classic {
 		const std::string &getName() const;
 
 		/**
+		Gets the unique ID of this entity.
+		*/
+		TEntityID getID() const;
+
+		/**
 		Sets the name of this entity.
 		*/
 		void setName(const std::string &name);

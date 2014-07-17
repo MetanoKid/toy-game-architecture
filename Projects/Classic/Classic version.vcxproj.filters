@@ -10,15 +10,6 @@
     <Filter Include="Messages\Header Files">
       <UniqueIdentifier>{8f83cddc-3caf-4bb8-a575-48bb5a009f6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Entity">
-      <UniqueIdentifier>{24ab08fb-f3a9-4257-ade9-f95cc39ffd4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Entity\Header Files">
-      <UniqueIdentifier>{901009d6-57e4-4e7b-b3ff-2e96963f4193}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Entity\Source Files">
-      <UniqueIdentifier>{c2b26032-c898-4189-826e-1847af7880be}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Components">
       <UniqueIdentifier>{43406862-7eab-4280-a9ad-e427e6ed13d1}</UniqueIdentifier>
     </Filter>
@@ -28,31 +19,43 @@
     <Filter Include="Components\Source Files">
       <UniqueIdentifier>{a796fd54-e9b4-4ee6-b381-5c6939a77d50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{d18ad716-80b1-42c3-a8c1-eed5c721c897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Header Files">
+      <UniqueIdentifier>{d4f44d41-15a3-457c-a5eb-1126fdb272e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Source Files">
+      <UniqueIdentifier>{fdc86c3c-7d06-40d5-be58-7f4e178c5bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{1393ff10-d506-4d7d-9a81-0f360f02f2b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Header Files">
+      <UniqueIdentifier>{4b2c2a08-478f-483a-a2ce-31461185d779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Source Files">
+      <UniqueIdentifier>{3118f248-1f52-487d-84d7-5f800d6a6cce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Src\Classic\Entity.cpp">
-      <Filter>Entity\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Classic\Component.cpp">
-      <Filter>Entity\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp">
       <Filter>Messages\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp">
       <Filter>Messages\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Components\Component.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Level\Level.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Src\Classic\Entity.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Classic\EntityID.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Classic\Component.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
       <Filter>Messages\Header Files</Filter>
     </ClInclude>
@@ -61,6 +64,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h">
       <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\Level.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Components\Component.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\Entity.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h">
+      <Filter>Entity\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

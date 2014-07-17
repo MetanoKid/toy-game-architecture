@@ -1,5 +1,5 @@
 #include "Component.h"
-#include "Messages/Message.h"
+#include "Classic/Messages/Message.h"
 #include "Application/Macros.h"
 
 namespace Classic {

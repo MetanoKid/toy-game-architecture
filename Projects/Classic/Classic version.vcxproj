@@ -72,16 +72,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Src\Classic\Component.h" />
-    <ClInclude Include="..\..\Src\Classic\Entity.h" />
-    <ClInclude Include="..\..\Src\Classic\EntityID.h" />
+    <ClInclude Include="..\..\Src\Classic\Components\Component.h" />
+    <ClInclude Include="..\..\Src\Classic\Entity\Entity.h" />
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h" />
+    <ClInclude Include="..\..\Src\Classic\Level\Level.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Src\Classic\Component.cpp" />
-    <ClCompile Include="..\..\Src\Classic\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Components\Component.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Level\Level.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />
   </ItemGroup>

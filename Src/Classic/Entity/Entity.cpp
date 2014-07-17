@@ -1,5 +1,5 @@
 #include "Entity.h"
-#include "Component.h"
+#include "Classic/Components/Component.h"
 #include "Application/Macros.h"
 
 namespace Classic {
@@ -110,6 +110,10 @@ namespace Classic {
 
 	void CEntity::setName(const std::string &name) {
 		_name = name;
+	}
+
+	TEntityID CEntity::getID() const {
+		return _id;
 	}
 
 	const std::string &CEntity::getType() const {
