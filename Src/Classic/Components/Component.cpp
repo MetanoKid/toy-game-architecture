@@ -47,7 +47,7 @@ namespace Classic {
 	}
 
 	void IComponent::tick(float secs) {
-		// to be overriden by children components
+		// to be overriden by child components
 	}
 
 	CEntity *IComponent::getEntity() const {
@@ -59,12 +59,12 @@ namespace Classic {
 	}
 
 	bool IComponent::accept(Messages::CMessage *message) const {
-		// to be overriden by children components
+		// to be overriden by child components
 		return false;
 	}
 
 	void IComponent::process(Messages::CMessage *message) {
-		// to be overriden by children components
+		// to be overriden by child components
 	}
 
 	bool IComponent::enqueueMessage(Messages::CMessage *message) {

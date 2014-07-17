@@ -41,13 +41,13 @@ namespace Classic {
 
 		/**
 		Tells whether or not a message is accepted by this component.
-		Must be overriden by children components if they want to say what they accept.
+		Must be overriden by child components if they want to say what they accept.
 		*/
 		virtual bool accept(Messages::CMessage *message) const;
 
 		/**
 		Processes a message this component accepts.
-		Must be overriden by children components to process those messages.
+		Must be overriden by child components to process those messages.
 		*/
 		virtual void process(Messages::CMessage *message);
 
@@ -86,7 +86,7 @@ namespace Classic {
 		void doTick(float secs);
 
 		/**
-		To be overriden by children components, it's called before doTick finishes.
+		To be overriden by child components, it's called before doTick finishes.
 
 		@see doTick()
 		*/
