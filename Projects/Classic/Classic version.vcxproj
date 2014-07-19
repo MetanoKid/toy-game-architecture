@@ -86,6 +86,7 @@
     <ClCompile Include="..\..\Src\Classic\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityID.cpp" />
     <ClCompile Include="..\..\Src\Classic\Level\Level.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />

@@ -57,6 +57,9 @@
     <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp">
       <Filter>Entity\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityID.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">

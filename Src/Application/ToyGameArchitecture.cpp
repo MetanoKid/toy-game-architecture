@@ -9,11 +9,10 @@
 
 int main(int argc, char **argv) {
 	// build the entity factory
-	Classic::CEntityFactory::getInstance();
+	Classic::CEntityFactory &entityFactory = Classic::CEntityFactory::getInstance();
 
 	// build an entity
-	Classic::TEntityID id = 0;
-	Classic::CEntity *entity = new Classic::CEntity(id);
+	Classic::CEntity *entity = entityFactory.createEntity("EntityType1");
 	Classic::IComponent *component = new Classic::IComponent();
 	entity->addComponent(component);
 

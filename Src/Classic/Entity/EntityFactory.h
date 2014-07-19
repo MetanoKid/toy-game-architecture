@@ -6,6 +6,9 @@
 
 namespace Classic {
 
+	// forward declaration
+	class CEntity;
+
 	/**
 	The task of creating and destroying entities is delegated to this factory.
 	Entities have two important concepts: they have a type and they have properties.
@@ -77,6 +80,12 @@ namespace Classic {
 			- It can't be deleted from outside code: pointers could.
 		*/
 		static CEntityFactory &getInstance();
+
+		/**
+		Creates an entity given a type. That will create the basic data, instantiate
+		components for that entity and set it up.
+		*/
+		CEntity *createEntity(const std::string &entityType);
 	};
 
 }

@@ -3,6 +3,8 @@
 
 #include "EntityFactory.h"
 #include "Blueprint.h"
+#include "Entity.h"
+#include "EntityID.h"
 
 namespace Classic {
 
@@ -66,6 +68,19 @@ namespace Classic {
 		}
 
 		return *_instance;
+	}
+
+	CEntity *CEntityFactory::createEntity(const std::string &entityType) {
+		// do we have the type?
+		assert(_blueprints.count(entityType) != 0 && "Blueprint couldn't be found.");
+
+		// create the entity, which won't have any component or data yet
+		CEntity *entity = new CEntity(CEntityID::nextID());
+
+		// build its components
+
+		// and return it
+		return entity;
 	}
 
 }
