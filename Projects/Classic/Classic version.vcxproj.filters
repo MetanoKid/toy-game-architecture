@@ -54,6 +54,9 @@
     <ClCompile Include="..\..\Src\Classic\Level\Level.cpp">
       <Filter>Level\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
@@ -75,6 +78,9 @@
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

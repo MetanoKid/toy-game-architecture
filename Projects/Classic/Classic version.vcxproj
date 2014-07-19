@@ -74,6 +74,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Components\Component.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\Entity.h" />
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h" />
     <ClInclude Include="..\..\Src\Classic\Level\Level.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h" />
@@ -83,6 +84,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Src\Classic\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\Classic\Level\Level.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />
