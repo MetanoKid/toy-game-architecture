@@ -73,6 +73,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Components\Component.h" />
+    <ClInclude Include="..\..\Src\Classic\Entity\Blueprint.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\Entity.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h" />

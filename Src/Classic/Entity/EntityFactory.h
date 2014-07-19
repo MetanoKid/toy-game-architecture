@@ -1,6 +1,9 @@
 #ifndef Classic_EntityFactory_H
 #define Classic_EntityFactory_H
 
+#include <map>
+#include "Blueprint.h"
+
 namespace Classic {
 
 	/**
@@ -21,6 +24,17 @@ namespace Classic {
 		The current and unique instance of the singleton.
 		*/
 		static CEntityFactory *_instance;
+
+		/**
+		Alias for our blueprints map.
+		*/
+		typedef std::map<std::string, CBlueprint> TBlueprints;
+
+		/**
+		Every blueprint is stored in this map so we can access them quickly when building
+		an entity. It's cached when instantiating the factory.
+		*/
+		TBlueprints _blueprints;
 
 		/**
 		Basic constructor, private as a part of the singleton pattern.

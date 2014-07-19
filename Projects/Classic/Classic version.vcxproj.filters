@@ -83,5 +83,8 @@
     <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\Blueprint.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

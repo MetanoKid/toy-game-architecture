@@ -2,9 +2,11 @@
 
 **/Debug/
 **/Release/
-bin/
 
 *.suo
 *.user
 *.opensdf
 *.sdf
+*.exe
+*.pdb
+*.ilk
