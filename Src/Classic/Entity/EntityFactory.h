@@ -85,7 +85,7 @@ namespace Classic {
 		Creates an entity given a type. That will create the basic data, instantiate
 		components for that entity and set it up.
 		*/
-		CEntity *createEntity(const std::string &entityType);
+		CEntity *build(const std::string &entityType) const;
 	};
 
 }

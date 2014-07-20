@@ -1,2 +1,1 @@
-EntityType1 ComponentName1 ComponentName2 ComponentName3
-EntityType2 ComponentNameA ComponentNameB ComponentNameC
+EntityTest CGraphics

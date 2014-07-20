@@ -12,9 +12,7 @@ int main(int argc, char **argv) {
 	Classic::CEntityFactory &entityFactory = Classic::CEntityFactory::getInstance();
 
 	// build an entity
-	Classic::CEntity *entity = entityFactory.createEntity("EntityType1");
-	Classic::IComponent *component = new Classic::IComponent();
-	entity->addComponent(component);
+	Classic::CEntity *entity = entityFactory.build("EntityTest");
 
 	// build a level
 	Classic::CLevel *level = new Classic::CLevel();

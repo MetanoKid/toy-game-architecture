@@ -6,6 +6,9 @@
 #include "Entity.h"
 #include "EntityID.h"
 
+#include "Classic/Components/ComponentFactory.h"
+#include "Application/Macros.h"
+
 namespace Classic {
 
 #define BLUEPRINTS_FILE_PATH "blueprints.txt"
@@ -70,7 +73,7 @@ namespace Classic {
 		return *_instance;
 	}
 
-	CEntity *CEntityFactory::createEntity(const std::string &entityType) {
+	CEntity *CEntityFactory::build(const std::string &entityType) const {
 		// do we have the type?
 		assert(_blueprints.count(entityType) != 0 && "Blueprint couldn't be found.");
 
@@ -78,6 +81,11 @@ namespace Classic {
 		CEntity *entity = new CEntity(CEntityID::nextID());
 
 		// build its components
+		CBlueprint blueprint = _blueprints.find(entityType)->second;
+		FOR_IT_CONST(CBlueprint::TComponentNames, it, blueprint.components) {
+			IComponent *component = CComponentFactory::getInstance().build(*it);
+			entity->addComponent(component);
+		}
 
 		// and return it
 		return entity;

@@ -60,6 +60,12 @@
     <ClCompile Include="..\..\Src\Classic\Entity\EntityID.cpp">
       <Filter>Entity\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Components\ComponentFactory.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Components\Graphics.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
@@ -88,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Entity\Blueprint.h">
       <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Components\ComponentFactory.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Components\Graphics.h">
+      <Filter>Components\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

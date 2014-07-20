@@ -20,10 +20,15 @@ namespace Classic {
 		std::string type;
 
 		/**
+		Alias for a component names list.
+		*/
+		typedef std::vector<std::string> TComponentNames;
+
+		/**
 		List of component names associated to this entity type. When instanciating
 		an entity of this type, components with these names will be instantiated as well.
 		*/
-		std::vector<std::string> components;
+		TComponentNames components;
 
 		/**
 		Processes an entry in the blueprints file into a blueprint.

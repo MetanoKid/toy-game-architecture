@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include "ComponentFactory.h"
+
 namespace Classic {
 
 	// forward declarations
@@ -20,6 +22,9 @@ namespace Classic {
 	Components are responsible of processing messages which will allow them to
 	interact between them, and are the ones responsible of executing different
 	parts of the logic (even if that logic means telling a graphic entity to move).
+
+	Child components must provide some macros to add them to the component factory,
+	so they are available when instantiating entities.
 	*/
 	class IComponent {
 	private:
@@ -107,6 +112,54 @@ namespace Classic {
 		*/
 		bool enqueueMessage(Messages::CMessage *message);
 	};
+
+	/**
+	Child components must use these next macros to register themselves into the
+	component factory at start up, since we need them when instantiating entities.
+	*/
+
+	/**
+	This macro declares some static methods that are part of every child component
+	class that will be defined.
+	Must be used within the component class' declaration, preferable as the first entry.
+	The only parameter of the macro isn't used, but exists to provide an uniform structure.
+	*/
+#define DECLARE_COMPONENT(ComponentClass) \
+public: \
+	/** \
+	Creates an instance of the component in which this is defined. \
+	*/ \
+	static IComponent *create(); \
+	\
+	/** \
+	Registers the component into the component factory. \
+	*/ \
+	static bool registerComponent();
+
+	/**
+	This macro defines some static methods that are part of every component, declared by
+	macro DECLARE_COMPONENT.
+	Must be used when providing the implementation of a component.
+	*/
+#define IMPLEMENT_COMPONENT(ComponentClass) \
+	IComponent *ComponentClass::create() { \
+		return new ComponentClass(); \
+	} \
+	\
+	bool ComponentClass::registerComponent() { \
+		CComponentFactory::getInstance().add(#ComponentClass, ComponentClass::create); \
+		/* just return true always because we need to return something for REGISTER_COMPONENT macro to work correctly */ \
+		return true; \
+	}
+
+	/**
+	This macro registers the function to create an instance of the component into the
+	component factory.
+	Since we can't call a function unless it's part of a static variable, we create one for each
+	component that is registered.
+	*/
+#define REGISTER_COMPONENT(ComponentClass) \
+	static bool RegisteredInFactory_##ComponentClass = ComponentClass::registerComponent();
 
 }
 
