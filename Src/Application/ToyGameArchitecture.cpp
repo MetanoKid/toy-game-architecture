@@ -6,8 +6,11 @@
 #include "Classic/Level/Level.h"
 
 #include "Classic/Entity/EntityFactory.h"
+#include "Classic/Level/LevelFactory.h"
 
 int main(int argc, char **argv) {
+	Classic::CLevelFactory::getInstance().build("Level.txt");
+
 	// build the entity factory
 	Classic::CEntityFactory &entityFactory = Classic::CEntityFactory::getInstance();
 

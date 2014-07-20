@@ -66,6 +66,9 @@
     <ClCompile Include="..\..\Src\Classic\Components\Graphics.cpp">
       <Filter>Components\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Level\LevelFactory.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
@@ -100,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Components\Graphics.h">
       <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\LevelFactory.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\LevelEntry.h">
+      <Filter>Level\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

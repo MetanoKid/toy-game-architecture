@@ -1,0 +1,7 @@
+Entity 1 : EntityTest
+	position 0 0 0
+	orientation 1
+
+Entity 2: EntityTest
+	model Entity.fbx
+	perception_type Type Alpha

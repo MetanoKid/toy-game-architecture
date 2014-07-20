@@ -34,9 +34,10 @@ namespace Classic {
 		Processes an entry in the blueprints file into a blueprint.
 		Every entry in the file has this structure:
 
-		<EntityType> <List of component names separated by spaces>
+		<Entity type> <List of component names separated by spaces>
 
 		For example:
+
 		Player CAvatarController CPerception CAnimatedGraphics
 		*/
 		friend std::istream &operator>>(std::istream &is, CBlueprint &blueprint) {
