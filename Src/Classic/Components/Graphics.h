@@ -5,22 +5,18 @@
 
 namespace Classic {
 
-	//namespace Components {
+	namespace Components {
 
-	class CGraphics : public IComponent {
-		DECLARE_COMPONENT(CGraphics);
-		/*public:
-			static IComponent *create();
-			static bool registerComponent();*/
+		class CGraphics : public IComponent {
+			DECLARE_COMPONENT(CGraphics);
 
-	public:
-		CGraphics();
-		~CGraphics();
-	};
+		public:
+			CGraphics();
+			~CGraphics();
+		};
 
-	REGISTER_COMPONENT(CGraphics);
-	//static bool RegisteredInFactory_CGraphics = CGraphics::registerComponent();
-	//}
+		REGISTER_COMPONENT(CGraphics);
+	}
 
 }
 

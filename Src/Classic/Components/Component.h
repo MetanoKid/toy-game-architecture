@@ -156,7 +156,7 @@ public: \
 	This macro registers the function to create an instance of the component into the
 	component factory.
 	Since we can't call a function unless it's part of a static variable, we create one for each
-	component that is registered.
+	component that is registered. That variable will only be available within the component's file.
 	*/
 #define REGISTER_COMPONENT(ComponentClass) \
 	static bool RegisteredInFactory_##ComponentClass = ComponentClass::registerComponent();

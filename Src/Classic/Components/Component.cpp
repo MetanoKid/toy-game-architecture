@@ -18,17 +18,17 @@ namespace Classic {
 	}
 
 	bool IComponent::spawn(const std::string &name, CLevelData *data, CLevel *level) {
-		// to be overriden by children classes
+		// to be overriden by child classes
 		return true;
 	}
 
 	bool IComponent::activate() {
-		// to be overriden by children classes
+		// to be overriden by child classes
 		return true;
 	}
 
 	void IComponent::deactivate() {
-		// to be overriden by children classes
+		// to be overriden by child classes
 	}
 
 	void IComponent::doTick(float secs) {
