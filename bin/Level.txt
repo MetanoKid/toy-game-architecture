@@ -1,8 +1,9 @@
 Entity 1 : EntityTest
 	position 0 0 0
 	orientation 1
+	model Entity with a long name and some spaces.fbx
 
 Entity 2: EntityTest
-	model Entity.fbx
+	model Model.fbx
 	perception_type Type Alpha
 	valid true

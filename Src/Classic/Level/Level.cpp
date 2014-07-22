@@ -5,7 +5,7 @@
 
 namespace Classic {
 
-	CLevel::CLevel() {
+	CLevel::CLevel() : _initialized(false) {
 
 	}
 
@@ -13,7 +13,25 @@ namespace Classic {
 		destroyAllEntities();
 	}
 
+	bool CLevel::initialize() {
+		assert(!_initialized && "A level can't be initialized twice.");
+
+		FOR_IT_CONST(TEntities, it, _entities) {
+			CEntity *entity = *it;
+
+			if(!entity->spawn(_entitiesData[entity->getID()], this)) {
+				assert(false && "An entity couldn't be spawned correctly.");
+				return false;
+			}
+		}
+
+		_initialized = true;
+		return true;
+	}
+
 	bool CLevel::activate() {
+		assert(_initialized && "A level can't be activated before being initialized.");
+
 		FOR_IT_CONST(TEntities, it, _entities) {
 			if(!(*it)->activate()) {
 				return false;
@@ -24,12 +42,16 @@ namespace Classic {
 	}
 
 	void CLevel::deactivate() {
+		assert(_initialized && "A level can't be deactivated before being initialized.");
+
 		FOR_IT_CONST(TEntities, it, _entities) {
 			(*it)->deactivate();
 		}
 	}
 
 	void CLevel::tick(float secs) {
+		assert(_initialized && "A level can't receive tick before being initialized.");
+
 		FOR_IT_CONST(TEntities, it, _entities) {
 			(*it)->tick(secs);
 		}

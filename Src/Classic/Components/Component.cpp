@@ -17,7 +17,7 @@ namespace Classic {
 		_messages.clear();
 	}
 
-	bool IComponent::spawn(const std::string &name, CLevelData *data, CLevel *level) {
+	bool IComponent::spawn(const CLevelData &data, CLevel *level) {
 		// to be overriden by child classes
 		return true;
 	}

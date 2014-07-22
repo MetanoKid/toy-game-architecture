@@ -40,6 +40,11 @@ namespace Classic {
 		TEntitiesData _entitiesData;
 
 		/**
+		Flag which stores whether or not the level has been initialized already.
+		*/
+		bool _initialized;
+
+		/**
 		Destroys every entity in the level, to be used when the level is destroyed.
 		*/
 		void destroyAllEntities();
@@ -54,6 +59,13 @@ namespace Classic {
 		This destructor will destroy every entity in the level.
 		*/
 		~CLevel();
+
+		/**
+		Initializes the level, which means handing data to the entities within it.
+		Must be done prior to level activation.
+		Second part of the two-step initialization.
+		*/
+		bool initialize();
 
 		/**
 		Activates the level, which will activate every entity in it.

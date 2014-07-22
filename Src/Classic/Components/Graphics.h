@@ -10,9 +10,14 @@ namespace Classic {
 		class CGraphics : public IComponent {
 			DECLARE_COMPONENT(CGraphics);
 
+		private:
+			std::string _modelName;
+
 		public:
 			CGraphics();
 			~CGraphics();
+
+			bool spawn(const CLevelData &data, CLevel *level);
 		};
 
 		REGISTER_COMPONENT(CGraphics);

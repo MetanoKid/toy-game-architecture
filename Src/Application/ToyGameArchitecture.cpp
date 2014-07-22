@@ -8,8 +8,6 @@
 #include "Classic/Entity/EntityFactory.h"
 #include "Classic/Level/LevelFactory.h"
 
-#include <vld.h>
-
 int main(int argc, char **argv) {
 	// initialize our systems
 	Classic::CComponentFactory::getInstance();
@@ -19,14 +17,15 @@ int main(int argc, char **argv) {
 	// build a level, from file
 	Classic::CLevel *level = Classic::CLevelFactory::getInstance().build("Level.txt");
 
-	/*// build a message
-	Classic::Messages::CMessage *message = new Classic::Messages::CMessage();
-
-	// send the message to our entity
-	entity->sendMessage(message);*/
+	// initialize and activate it
+	level->initialize();
+	level->activate();
 
 	// tick our level once
 	level->tick(0);
+
+	// deactivate it, as part of its life cycle
+	level->deactivate();
 
 	// delete our level, which should delete the entity as well
 	delete level;

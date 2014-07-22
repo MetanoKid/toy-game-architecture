@@ -66,6 +66,7 @@ namespace Classic {
 			// this is part of the two-step initialization: first structure then data
 			CEntity *entity = CEntityFactory::getInstance().build(levelEntry.type);
 			entity->setName(levelEntry.name);
+			entity->setType(levelEntry.type);
 
 			// store data for second step when adding to the level
 			level->addEntity(entity, levelEntry.properties);

@@ -13,16 +13,14 @@ namespace Classic {
 		destroyComponents();
 	}
 
-	bool CEntity::spawn(const std::string &entityName, CLevelData *data, CLevel *level) {
+	bool CEntity::spawn(const CLevelData &data, CLevel *level) {
 		// keep some entity-level information, like name, type or level
-		_name = entityName;
 		_level = level;
-		// _type = data->get<string>("type");
 
 		// now, spawn components
 		FOR_IT_CONST(TComponents, it, _components) {
 			// if any component's spawn fails, stop right away
-			if(!(*it)->spawn(entityName, data, level)) {
+			if(!(*it)->spawn(data, level)) {
 				return false;
 			}
 		}
@@ -119,6 +117,10 @@ namespace Classic {
 
 	const std::string &CEntity::getType() const {
 		return _type;
+	}
+
+	void CEntity::setType(const std::string &type) {
+		_type = type;
 	}
 
 	bool CEntity::isActive() const {

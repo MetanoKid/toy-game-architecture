@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "EntityID.h"
+#include "Classic/Level/LevelData.h"
 
 namespace Classic {
 
@@ -85,7 +86,7 @@ namespace Classic {
 
 		@return bool whether or not the spawn of its components was correct.
 		*/
-		bool spawn(const std::string &entityName, CLevelData *data, CLevel *level);
+		bool spawn(const CLevelData &data, CLevel *level);
 
 		/**
 		Activates the entity.
@@ -151,6 +152,11 @@ namespace Classic {
 		Gets the type of this entity.
 		*/
 		const std::string &getType() const;
+
+		/**
+		Sets the type of this entity.
+		*/
+		void setType(const std::string &type);
 
 		/**
 		Gets whether or not the entity is active.

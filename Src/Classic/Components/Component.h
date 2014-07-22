@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "ComponentFactory.h"
+#include "Classic/Level/LevelData.h"
 
 namespace Classic {
 
@@ -72,7 +73,7 @@ namespace Classic {
 		Initializes component's basic data, as the second part of  the component's
 		initialization.
 		*/
-		virtual bool spawn(const std::string &name, CLevelData *data, CLevel *level);
+		virtual bool spawn(const CLevelData &data, CLevel *level);
 
 		/**
 		Activates the component.
