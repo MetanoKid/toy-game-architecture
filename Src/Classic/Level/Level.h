@@ -2,8 +2,10 @@
 #define Classic_Level_H
 
 #include <vector>
+#include <map>
 
 #include "Classic/Entity/EntityID.h"
+#include "Classic/Level/LevelData.h"
 
 namespace Classic {
 
@@ -26,6 +28,16 @@ namespace Classic {
 		List of entities in this level.
 		*/
 		TEntities _entities;
+
+		/**
+		Data for all entities in the level, when the level is built.
+		*/
+		typedef std::map<TEntityID, CLevelData> TEntitiesData;
+
+		/**
+		Map in which we store entity data for each entity in the level.
+		*/
+		TEntitiesData _entitiesData;
 
 		/**
 		Destroys every entity in the level, to be used when the level is destroyed.
@@ -61,7 +73,7 @@ namespace Classic {
 		/**
 		Adds an entity to the level.
 		*/
-		bool addEntity(CEntity *entity);
+		bool addEntity(CEntity *entity, CLevelData data);
 
 		/**
 		Removes an entity from the level.

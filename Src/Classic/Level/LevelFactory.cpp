@@ -5,6 +5,8 @@
 
 #include "Level.h"
 #include "LevelEntry.h"
+#include "Classic/Entity/EntityFactory.h"
+#include "Classic/Entity/Entity.h"
 
 namespace Classic {
 
@@ -59,7 +61,14 @@ namespace Classic {
 			CLevelEntry levelEntry;
 			in >> levelEntry;
 
-			printf("Just processed '%s' which is a '%s'\n\n", levelEntry.name.c_str(), levelEntry.type.c_str());
+			// now that we've read the entity data from the level, create a new
+			// entity without properties, just structure (components)
+			// this is part of the two-step initialization: first structure then data
+			CEntity *entity = CEntityFactory::getInstance().build(levelEntry.type);
+			entity->setName(levelEntry.name);
+
+			// store data for second step when adding to the level
+			level->addEntity(entity, levelEntry.properties);
 		}
 
 		return level;

@@ -6,6 +6,8 @@
 #include <cassert>
 #include <stdio.h>
 
+#include "LevelData.h"
+
 namespace Classic {
 
 	/**
@@ -20,8 +22,7 @@ namespace Classic {
 	struct CLevelEntry {
 		std::string name;
 		std::string type;
-
-		// CLevelData _properties;
+		CLevelData properties;
 
 		/**
 		Processes an entry in the level file into a data structure.
@@ -80,10 +81,8 @@ namespace Classic {
 				iss >> propertyName;
 				std::getline(iss, propertyValue, '\n');
 
-				// TODO: delete next first and third line, uncomment the second one
-				propertyValue = trim(propertyValue);
-				// entry.data.put(propertyName, trim(propertyValue));
-				printf("\t'%s' -> '%s'\n", propertyName.c_str(), propertyValue.c_str());
+				// add the property to the struct
+				entry.properties.put(propertyName, trim(propertyValue));
 
 				// was this the last line?
 				if(is.eof()) {

@@ -1,6 +1,7 @@
 #include "Entity.h"
 #include "Classic/Components/Component.h"
 #include "Application/Macros.h"
+#include "Classic/Messages/Message.h"
 
 namespace Classic {
 

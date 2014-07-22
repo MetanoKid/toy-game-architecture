@@ -1,6 +1,7 @@
 #include "ComponentFactory.h"
 
 #include <cassert>
+#include "Application/Macros.h"
 
 namespace Classic {
 
@@ -11,7 +12,7 @@ namespace Classic {
 	}
 
 	CComponentFactory::~CComponentFactory() {
-
+		_components.clear();
 	}
 
 	CComponentFactory::CComponentFactory(const CComponentFactory &factory) {

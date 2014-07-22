@@ -5,3 +5,4 @@ Entity 1 : EntityTest
 Entity 2: EntityTest
 	model Entity.fbx
 	perception_type Type Alpha
+	valid true

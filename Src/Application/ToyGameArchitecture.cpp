@@ -8,24 +8,22 @@
 #include "Classic/Entity/EntityFactory.h"
 #include "Classic/Level/LevelFactory.h"
 
+#include <vld.h>
+
 int main(int argc, char **argv) {
-	Classic::CLevelFactory::getInstance().build("Level.txt");
+	// initialize our systems
+	Classic::CComponentFactory::getInstance();
+	Classic::CEntityFactory::getInstance();
+	Classic::CLevelFactory::getInstance();
 
-	// build the entity factory
-	Classic::CEntityFactory &entityFactory = Classic::CEntityFactory::getInstance();
+	// build a level, from file
+	Classic::CLevel *level = Classic::CLevelFactory::getInstance().build("Level.txt");
 
-	// build an entity
-	Classic::CEntity *entity = entityFactory.build("EntityTest");
-
-	// build a level
-	Classic::CLevel *level = new Classic::CLevel();
-	level->addEntity(entity);
-
-	// build a message
+	/*// build a message
 	Classic::Messages::CMessage *message = new Classic::Messages::CMessage();
 
 	// send the message to our entity
-	entity->sendMessage(message);
+	entity->sendMessage(message);*/
 
 	// tick our level once
 	level->tick(0);
@@ -33,8 +31,10 @@ int main(int argc, char **argv) {
 	// delete our level, which should delete the entity as well
 	delete level;
 
-	// lastly, release the entity factory which is the only way of destructing it
+	// lastly, release our factories which is the only way of destructing them
 	Classic::CEntityFactory::release();
+	Classic::CLevelFactory::release();
+	Classic::CComponentFactory::release();
 
 	return 0;
 }

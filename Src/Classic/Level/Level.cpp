@@ -35,11 +35,14 @@ namespace Classic {
 		}
 	}
 
-	bool CLevel::addEntity(CEntity *entity) {
+	bool CLevel::addEntity(CEntity *entity, CLevelData data) {
 		TEntities::const_iterator it = std::find(_entities.begin(), _entities.end(), entity);
 
 		if(it == _entities.end()) {
 			_entities.push_back(entity);
+
+			// also, store the data for this entity for the second step of initialization
+			_entitiesData[entity->getID()] = data;
 			return true;
 		}
 
