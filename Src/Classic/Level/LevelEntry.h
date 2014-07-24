@@ -4,7 +4,6 @@
 #include <string>
 #include <sstream>
 #include <cassert>
-#include <stdio.h>
 
 #include "LevelData.h"
 
