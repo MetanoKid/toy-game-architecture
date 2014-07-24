@@ -73,6 +73,9 @@ namespace Application {
 			// tick our level with a controlled delta time
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
 
+			// clean entities which were scheduled to be deleted
+			Classic::CEntityFactory::getInstance().deletePendingEntities();
+
 			// next loop
 			loopCount++;
 		}

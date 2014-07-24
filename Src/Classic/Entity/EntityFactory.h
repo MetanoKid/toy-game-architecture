@@ -2,6 +2,7 @@
 #define Classic_EntityFactory_H
 
 #include <map>
+#include <vector>
 #include "Blueprint.h"
 
 namespace Classic {
@@ -38,6 +39,16 @@ namespace Classic {
 		an entity. It's cached when instantiating the factory.
 		*/
 		TBlueprints _blueprints;
+
+		/**
+		Alias for a vector of entities which will be deleted.
+		*/
+		typedef std::vector<CEntity *> TEntities;
+
+		/**
+		Vector of entities which are requested to be deleted.
+		*/
+		TEntities _entitiesToBeDeleted;
 
 		/**
 		Basic constructor, private as a part of the singleton pattern.
@@ -86,6 +97,19 @@ namespace Classic {
 		components for that entity and set it up.
 		*/
 		CEntity *build(const std::string &entityType) const;
+
+		/**
+		Entities can't be deleted at any time, and even less during level's tick because we're
+		iterating over every entity in the level, and our iterator would get corrupted.
+		To prevent that, we enqueue the entity to be deleted. Later on, we'll really delete
+		every entity which is part of that queue.
+		*/
+		void deferDeleteEntity(CEntity *entity);
+
+		/**
+		Deletes every entity which was requested to be deleted.
+		*/
+		void deletePendingEntities();
 	};
 
 }

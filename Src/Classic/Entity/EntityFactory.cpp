@@ -7,6 +7,7 @@
 #include "EntityID.h"
 
 #include "Classic/Components/ComponentFactory.h"
+#include "Classic/Level/Level.h"
 #include "Application/Macros.h"
 
 namespace Classic {
@@ -89,6 +90,26 @@ namespace Classic {
 
 		// and return it
 		return entity;
+	}
+
+	void CEntityFactory::deferDeleteEntity(CEntity *entity) {
+		_entitiesToBeDeleted.push_back(entity);
+	}
+
+	void CEntityFactory::deletePendingEntities() {
+		FOR_IT_CONST(TEntities, it, _entitiesToBeDeleted) {
+			CEntity *entity = *it;
+
+			if(entity) {
+				// remove the entity from its level
+				entity->getLevel()->removeEntity(entity);
+
+				// and delete it
+				delete entity;
+			}
+		}
+
+		_entitiesToBeDeleted.clear();
 	}
 
 }
