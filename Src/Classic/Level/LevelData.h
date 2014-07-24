@@ -9,11 +9,29 @@
 
 namespace Classic {
 
+	/**
+	Every level file contains a number of entities and their data. After the entities
+	are built and their components are instantiated, then they are spawned with their
+	actual data. That's the second step of their initialization.
+	This type stores that data and provides a get function to obtain properties.
+	*/
 	class CLevelData {
 	private:
+		/**
+		Alias for our map of properties.
+		*/
 		typedef std::map<std::string, std::string> TProperties;
+
+		/**
+		Internal map of properties.
+		*/
 		TProperties _properties;
 
+		/**
+		To abstract and reuse our get function, we provide a private and more generic
+		function which is used by the other ones where applyable.
+		It lets us provide a stream manipulator so we can process some data easier.
+		*/
 		template <typename T>
 		bool get(const std::string &propertyName,
 		         T &outValue,
@@ -51,25 +69,47 @@ namespace Classic {
 		}
 
 	public:
+		/**
+		Default constructor.
+		*/
 		CLevelData();
 
+		/**
+		Default destructor.
+		*/
 		~CLevelData();
 
+		/**
+		Adds a property into the data structure. It doesn't allow duplicates.
+		*/
 		void put(const std::string &propertyName, const std::string &propertyValue);
 
+		/**
+		Gets a property and processes it into an instance of a type provided by the user.
+		Returns whether or not the processing was correct, since data is set to the out value.
+		*/
 		template <typename T>
 		bool get(const std::string &propertyName, T &outValue) const {
 			return get(propertyName, outValue, std::skipws);
 		}
 
+		/**
+		Gets a boolean value.
+		*/
 		template <> bool get(const std::string &propertyName, bool &outValue) const {
 			return get(propertyName, outValue, std::boolalpha);
 		}
 
+		/**
+		Gets a char value.
+		*/
 		template <> bool get(const std::string &propertyName, char &outValue) const {
 			return get(propertyName, outValue, std::skipws, 1);
 		}
 
+		/**
+		Gets a string value, without taking spaces into account.
+		*/
 		template <> bool get(const std::string &propertyName, std::string &outValue) const {
 			// do we have the property?
 			TProperties::const_iterator it = _properties.find(propertyName);

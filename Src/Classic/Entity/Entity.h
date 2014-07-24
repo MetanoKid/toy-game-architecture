@@ -9,7 +9,9 @@
 
 namespace Classic {
 
-	// forward declarations
+	/**
+	Forward declarations.
+	*/
 	class IComponent;
 	class CLevel;
 	class CLevelData;
@@ -67,6 +69,11 @@ namespace Classic {
 		*/
 		TComponents _components;
 
+		/**
+		Destroys every component, as the entity is the one responsible for them.
+		*/
+		void destroyComponents();
+
 	public:
 		/**
 		Base constructor, with an ID.
@@ -114,11 +121,6 @@ namespace Classic {
 		Removes a component from the list.
 		*/
 		void removeComponent(IComponent *component);
-
-		/**
-		Destroys every component, as the entity is the one responsible for them.
-		*/
-		void destroyComponents();
 
 		/**
 		Arguably the most important method in the entity.

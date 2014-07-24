@@ -9,7 +9,9 @@
 
 namespace Classic {
 
-	// forward declarations
+	/**
+	Forward declarations.
+	*/
 	class CEntity;
 	class CLevelData;
 	class CLevel;

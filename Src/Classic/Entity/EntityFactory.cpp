@@ -14,9 +14,6 @@ namespace Classic {
 
 #define BLUEPRINTS_FILE_PATH "blueprints.txt"
 
-	/**
-	Initialize the instance so it doesn't exist when the architecture starts.
-	*/
 	CEntityFactory *CEntityFactory::_instance = NULL;
 
 	CEntityFactory::CEntityFactory() {

@@ -3,11 +3,14 @@
 
 #include <map>
 #include <vector>
+
 #include "Blueprint.h"
 
 namespace Classic {
 
-	// forward declaration
+	/**
+	Forward declarations.
+	*/
 	class CEntity;
 
 	/**

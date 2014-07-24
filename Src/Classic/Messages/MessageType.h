@@ -5,6 +5,9 @@ namespace Classic {
 
 	namespace Messages {
 
+		/**
+		Defines every message type in the application.
+		*/
 		enum TMessage {
 			// base type
 			UNASSIGNED = 0

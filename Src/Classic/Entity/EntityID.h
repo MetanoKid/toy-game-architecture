@@ -3,6 +3,9 @@
 
 namespace Classic {
 
+	/**
+	Alias for the type of entity's ID.
+	*/
 	typedef unsigned int TEntityID;
 
 	/**

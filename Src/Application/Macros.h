@@ -1,5 +1,5 @@
-#ifndef Macros_H
-#define Macros_H
+#ifndef Application_Macros_H
+#define Application_Macros_H
 
 /**
 Macro to help creating for loops which use const_iterators on a STL-like container.

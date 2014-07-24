@@ -7,6 +7,7 @@
 
 namespace Classic {
 
+#define LEVEL_TO_BUILD "Level.txt"
 #define GAME_LOOP_MAX_REPETITIONS 1
 #define CONTROLLED_DELTA_TIME 0.16f
 
@@ -45,7 +46,7 @@ namespace Classic {
 
 	bool CApplication::initialize() {
 		// perform application's initialization stuff, like loading a level
-		_currentLevel = CLevelFactory::getInstance().build("Level.txt");
+		_currentLevel = CLevelFactory::getInstance().build(LEVEL_TO_BUILD);
 
 		return _currentLevel->initialize();
 	}

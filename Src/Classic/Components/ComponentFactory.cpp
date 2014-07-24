@@ -1,6 +1,7 @@
 #include "ComponentFactory.h"
 
 #include <cassert>
+
 #include "Application/Macros.h"
 
 namespace Classic {

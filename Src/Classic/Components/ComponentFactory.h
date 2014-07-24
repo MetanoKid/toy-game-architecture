@@ -6,7 +6,9 @@
 
 namespace Classic {
 
-	// forward declarations
+	/**
+	Forward declarations.
+	*/
 	class IComponent;
 
 	/**

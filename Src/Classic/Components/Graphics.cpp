@@ -26,6 +26,28 @@ namespace Classic {
 
 			return true;
 		}
+
+		bool CGraphics::accept(Messages::CMessage *message) const {
+			// not interested in any message
+			return false;
+		}
+
+		void CGraphics::process(Messages::CMessage *message) {
+			// since it's not interested in any message, no processing must be done
+		}
+
+		bool CGraphics::activate() {
+			// perform operations when activating, if any
+			return true;
+		}
+
+		void CGraphics::deactivate() {
+			// perform operations when deactivating, if any
+		}
+
+		void CGraphics::tick(float secs) {
+			// tell the Graphics engine where this graphic entity is right now
+		}
 	}
 
 }

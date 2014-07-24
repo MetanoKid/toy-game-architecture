@@ -5,7 +5,9 @@
 
 namespace Classic {
 
-	// forward declarations
+	/**
+	Forward declarations.
+	*/
 	class CLevel;
 
 	/**

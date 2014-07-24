@@ -3,11 +3,15 @@
 
 namespace Classic {
 
-	// forward declarations
+	/**
+	Forward declarations.
+	*/
 	class CLevel;
 
 	/**
-
+	This class represents the entry point of the application.
+	It manages the life cycle of the application, creating, initializing, running and
+	killing it when necessary.
 	*/
 	class CApplication {
 	private:

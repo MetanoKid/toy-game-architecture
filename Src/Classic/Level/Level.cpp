@@ -1,7 +1,7 @@
 #include "Level.h"
 
-#include "Application/Macros.h"
 #include "Classic/Entity/Entity.h"
+#include "Application/Macros.h"
 
 namespace Classic {
 

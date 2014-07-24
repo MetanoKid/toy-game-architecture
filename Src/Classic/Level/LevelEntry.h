@@ -18,9 +18,24 @@ namespace Classic {
 		return str.substr(first, last - first + 1);
 	}
 
+	/**
+	Every level has several entries which describe entities and their data.
+	This struct represents one of those entries.
+	*/
 	struct CLevelEntry {
+		/**
+		Name of the entity in the entry.
+		*/
 		std::string name;
+
+		/**
+		Type of the entity in the entry.
+		*/
 		std::string type;
+
+		/**
+		Data associated to this entry.
+		*/
 		CLevelData properties;
 
 		/**
