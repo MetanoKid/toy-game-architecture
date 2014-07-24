@@ -74,6 +74,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Classic\Application.h" />
     <ClInclude Include="..\..\Src\Classic\Components\Component.h" />
     <ClInclude Include="..\..\Src\Classic\Components\ComponentFactory.h" />
     <ClInclude Include="..\..\Src\Classic\Components\Graphics.h" />
@@ -90,6 +91,7 @@
     <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Classic\Application.cpp" />
     <ClCompile Include="..\..\Src\Classic\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Components\ComponentFactory.cpp" />
     <ClCompile Include="..\..\Src\Classic\Components\Graphics.cpp" />

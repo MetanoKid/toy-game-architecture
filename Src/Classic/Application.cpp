@@ -1,12 +1,11 @@
 #include "Application.h"
 
-#include "Classic/Components/ComponentFactory.h"
-#include "Classic/Entity/EntityFactory.h"
-#include "Classic/Level/LevelFactory.h"
+#include "Components/ComponentFactory.h"
+#include "Entity/EntityFactory.h"
+#include "Level/LevelFactory.h"
+#include "Level/Level.h"
 
-#include "Classic/Level/Level.h"
-
-namespace Application {
+namespace Classic {
 
 #define GAME_LOOP_MAX_REPETITIONS 1
 #define CONTROLLED_DELTA_TIME 0.16f
@@ -15,9 +14,9 @@ namespace Application {
 
 	CApplication::CApplication() {
 		// initialize every subsystem in the architecture
-		Classic::CComponentFactory::getInstance();
-		Classic::CEntityFactory::getInstance();
-		Classic::CLevelFactory::getInstance();
+		CComponentFactory::getInstance();
+		CEntityFactory::getInstance();
+		CLevelFactory::getInstance();
 	}
 
 	CApplication::~CApplication() {
@@ -27,9 +26,9 @@ namespace Application {
 		}
 
 		// clean up every subsystem in the architecture
-		Classic::CEntityFactory::release();
-		Classic::CLevelFactory::release();
-		Classic::CComponentFactory::release();
+		CEntityFactory::release();
+		CLevelFactory::release();
+		CComponentFactory::release();
 	}
 
 	CApplication::CApplication(const CApplication &factory) {
@@ -46,7 +45,7 @@ namespace Application {
 
 	bool CApplication::initialize() {
 		// perform application's initialization stuff, like loading a level
-		_currentLevel = Classic::CLevelFactory::getInstance().build("Level.txt");
+		_currentLevel = CLevelFactory::getInstance().build("Level.txt");
 
 		return _currentLevel->initialize();
 	}
@@ -74,7 +73,7 @@ namespace Application {
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
 
 			// clean entities which were scheduled to be deleted
-			Classic::CEntityFactory::getInstance().deletePendingEntities();
+			CEntityFactory::getInstance().deletePendingEntities();
 
 			// next loop
 			loopCount++;

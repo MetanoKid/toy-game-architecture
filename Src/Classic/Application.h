@@ -1,12 +1,10 @@
-#ifndef Application_Application_H
-#define Application_Application_H
+#ifndef Classic_Application_H
+#define Classic_Application_H
 
-// forward declarations
 namespace Classic {
-	class CLevel;
-}
 
-namespace Application {
+	// forward declarations
+	class CLevel;
 
 	/**
 

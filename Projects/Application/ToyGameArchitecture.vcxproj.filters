@@ -12,15 +12,9 @@
     <ClCompile Include="..\..\Src\Application\ToyGameArchitecture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Application\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Application\Macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Application\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -37,6 +37,12 @@
     <Filter Include="Entity\Source Files">
       <UniqueIdentifier>{3118f248-1f52-487d-84d7-5f800d6a6cce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{52dd433c-3e9a-425a-b6f5-4121b8eb2fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d4e196c0-2804-4261-adb2-dd5d76b55680}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp">
@@ -71,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\Classic\Level\LevelData.cpp">
       <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Application.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +124,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Level\LevelData.h">
       <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Application.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,5 @@
 #include "Graphics.h"
 
-#include <stdio.h>
-
 #include "Classic/Entity/Entity.h"
 
 namespace Classic {
@@ -21,8 +19,7 @@ namespace Classic {
 		bool CGraphics::spawn(const CLevelData &data, CLevel *level) {
 			// try to get some data, which we take as mandatory
 			if(data.get<std::string>("model", _modelName)) {
-				printf("[Graphics] Entity '%s' has a model named '%s'\n",
-				       _entity->getName().c_str(), _modelName.c_str());
+				// got a model name, so now tell the graphics engine to load it
 			} else {
 				return false;
 			}

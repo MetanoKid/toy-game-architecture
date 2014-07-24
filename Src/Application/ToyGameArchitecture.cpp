@@ -1,8 +1,8 @@
-#include "Application.h"
+#include "Classic/Application.h"
 
 int main(int argc, char **argv) {
 	// build the application
-	Application::CApplication &application = Application::CApplication::getInstance();
+	Classic::CApplication &application = Classic::CApplication::getInstance();
 
 	// initialize it and run if initialization was successful
 	if(application.initialize()) {

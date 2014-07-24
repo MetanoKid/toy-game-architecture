@@ -85,7 +85,6 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Src\Application\Application.cpp" />
     <ClCompile Include="..\..\Src\Application\ToyGameArchitecture.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +93,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Src\Application\Application.h" />
     <ClInclude Include="..\..\Src\Application\Macros.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
