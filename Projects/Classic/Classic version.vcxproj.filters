@@ -102,6 +102,9 @@
     <ClCompile Include="..\..\Src\Classic\Samples\Components\Graphics.cpp">
       <Filter>Samples\Components\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Samples\Messages\SetPosition.cpp">
+      <Filter>Samples\Messages\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Classic\Samples\Components\Graphics.h">
       <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Samples\Messages\SetPosition.h">
+      <Filter>Samples\Messages\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -89,6 +89,7 @@
     <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h" />
     <ClInclude Include="..\..\Src\Classic\Samples\Components\Graphics.h" />
+    <ClInclude Include="..\..\Src\Classic\Samples\Messages\SetPosition.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Classic\Application.cpp" />
@@ -103,6 +104,7 @@
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />
     <ClCompile Include="..\..\Src\Classic\Samples\Components\Graphics.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Samples\Messages\SetPosition.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

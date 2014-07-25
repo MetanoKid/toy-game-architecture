@@ -5,6 +5,10 @@
 #include "Level/LevelFactory.h"
 #include "Level/Level.h"
 
+// these next includes exist because of our sample test
+#include "Entity/Entity.h"
+#include "Samples/Messages/SetPosition.h"
+
 namespace Classic {
 
 #define LEVEL_TO_BUILD "Level.txt"
@@ -67,6 +71,8 @@ namespace Classic {
 		we keep it under control and declare how many ticks will be
 		performed and the delta time, so our tests are easier to maintain.
 		*/
+
+		/*
 		int loopCount = 0;
 
 		while(loopCount < GAME_LOOP_MAX_REPETITIONS) {
@@ -78,6 +84,26 @@ namespace Classic {
 
 			// next loop
 			loopCount++;
+		}
+		*/
+
+		{
+			/**
+			Since we need a way to test a sample application, we must have even better control
+			of what's happening. So, we'll simulate an execution.
+			*/
+			CEntity *entity = _currentLevel->getEntityByID(0);
+
+			// first tick (it does nothing)
+			_currentLevel->tick(CONTROLLED_DELTA_TIME);
+			CEntityFactory::getInstance().deletePendingEntities();
+
+			// send a message
+			entity->sendMessage(new Samples::Messages::CSetPosition(Vector3(1.0f, 0.0f, 0.0f)));
+
+			// second tick (message is processed)
+			_currentLevel->tick(CONTROLLED_DELTA_TIME);
+			CEntityFactory::getInstance().deletePendingEntities();
 		}
 
 		// deactivate it, as part of its life cycle

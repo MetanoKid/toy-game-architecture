@@ -17,5 +17,8 @@
     <ClInclude Include="..\..\Src\Application\Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\Application\Vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,7 +10,10 @@ namespace Classic {
 		*/
 		enum TMessage {
 			// base type
-			UNASSIGNED = 0
+			UNASSIGNED = 0,
+
+			// sample message
+			SET_POSITION
 		};
 
 	}

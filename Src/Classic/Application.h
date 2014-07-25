@@ -14,7 +14,7 @@ namespace Classic {
 	killing it when necessary.
 	*/
 	class CApplication {
-	private:
+	protected:
 		/**
 		Current level used in the application.
 		*/
@@ -34,7 +34,7 @@ namespace Classic {
 		Basic destructor.
 		We can only destruct it from inside, so it's private.
 		*/
-		~CApplication();
+		virtual ~CApplication();
 
 		/**
 		In order to prevent accidental (or intentional) copying of the singleton instance,
@@ -52,12 +52,12 @@ namespace Classic {
 		/**
 		Initializes the application including every subsystem.
 		*/
-		bool initialize();
+		virtual bool initialize();
 
 		/**
 		Runs the application until exit is requested.
 		*/
-		void run();
+		virtual void run();
 
 		/**
 		When the singleton won't be used anymore, we can call this method to destroy the
