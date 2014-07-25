@@ -106,7 +106,8 @@ This project is developed using Visual Studio 2012 and a solution file is includ
 - If you want to launch it right from the IDE:
     - Right click the `ToyGameArchitecture` project.
     - Go to Properties.
+    - Select `All configurations` from the Configurations dropdown.
     - Under Configuration properties choose Debugging.
-    - Set Working directory to `$(OutDir)`.
+    - Change Working directory from `$(ProjectDir)` to `$(OutDir)`.
 - Compile solution.
 - Execute.
