@@ -77,7 +77,6 @@
     <ClInclude Include="..\..\Src\Classic\Application.h" />
     <ClInclude Include="..\..\Src\Classic\Components\Component.h" />
     <ClInclude Include="..\..\Src\Classic\Components\ComponentFactory.h" />
-    <ClInclude Include="..\..\Src\Classic\Components\Graphics.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\Blueprint.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\Entity.h" />
     <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h" />
@@ -89,12 +88,12 @@
     <ClInclude Include="..\..\Src\Classic\Messages\Message.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h" />
     <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h" />
+    <ClInclude Include="..\..\Src\Classic\Samples\Components\Graphics.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Classic\Application.cpp" />
     <ClCompile Include="..\..\Src\Classic\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Classic\Components\ComponentFactory.cpp" />
-    <ClCompile Include="..\..\Src\Classic\Components\Graphics.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\Classic\Entity\EntityID.cpp" />
@@ -103,6 +102,7 @@
     <ClCompile Include="..\..\Src\Classic\Level\LevelFactory.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp" />
+    <ClCompile Include="..\..\Src\Classic\Samples\Components\Graphics.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

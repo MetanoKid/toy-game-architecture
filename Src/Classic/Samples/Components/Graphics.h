@@ -1,7 +1,7 @@
 #ifndef Classic_Components_Graphics_H
 #define Classic_Components_Graphics_H
 
-#include "Component.h"
+#include "Classic/Components/Component.h"
 
 namespace Classic {
 
