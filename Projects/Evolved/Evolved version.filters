@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Messages">
+      <UniqueIdentifier>{596a5bf7-0702-459c-8356-9f4d12ec1247}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages\Source Files">
+      <UniqueIdentifier>{d5addf02-f79f-42e4-8d27-143fc20db298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages\Header Files">
+      <UniqueIdentifier>{8f83cddc-3caf-4bb8-a575-48bb5a009f6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{43406862-7eab-4280-a9ad-e427e6ed13d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Header Files">
+      <UniqueIdentifier>{d8eec969-9503-47c4-be50-19dbea47f12d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Source Files">
+      <UniqueIdentifier>{a796fd54-e9b4-4ee6-b381-5c6939a77d50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{d18ad716-80b1-42c3-a8c1-eed5c721c897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Header Files">
+      <UniqueIdentifier>{d4f44d41-15a3-457c-a5eb-1126fdb272e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Source Files">
+      <UniqueIdentifier>{fdc86c3c-7d06-40d5-be58-7f4e178c5bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{1393ff10-d506-4d7d-9a81-0f360f02f2b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Header Files">
+      <UniqueIdentifier>{4b2c2a08-478f-483a-a2ce-31461185d779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Source Files">
+      <UniqueIdentifier>{3118f248-1f52-487d-84d7-5f800d6a6cce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{52dd433c-3e9a-425a-b6f5-4121b8eb2fa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{d4e196c0-2804-4261-adb2-dd5d76b55680}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples">
+      <UniqueIdentifier>{98eec5fe-b0fa-4de6-8e51-44d8a2e66148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components">
+      <UniqueIdentifier>{1cfc4651-db81-441e-b86b-007418fa069b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages">
+      <UniqueIdentifier>{cb339f0e-ed9b-451c-bfb8-b0682ee5aa72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components\Header Files">
+      <UniqueIdentifier>{5ef0dd6b-2e18-43ab-a593-e66e87ce1764}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components\Source Files">
+      <UniqueIdentifier>{101ba04a-5da2-405f-b96d-869352f153ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages\Header Files">
+      <UniqueIdentifier>{f08e69ff-dfc2-418c-87f8-951e03a1d21f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages\Source Files">
+      <UniqueIdentifier>{d833ef1c-83e2-4641-b197-d71c3b6dc460}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\Classic\Messages\NotSoSmartPointer.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Messages\Message.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Components\Component.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\Entity.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Level\Level.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityFactory.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Entity\EntityID.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Components\ComponentFactory.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Level\LevelFactory.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Level\LevelData.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Samples\Components\Graphics.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Classic\Samples\Messages\SetPosition.cpp">
+      <Filter>Samples\Messages\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Src\Classic\Messages\Message.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Messages\NotSoSmartPointer.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Messages\MessageType.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\Level.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Components\Component.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\Entity.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityID.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\EntityFactory.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Entity\Blueprint.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Components\ComponentFactory.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\LevelFactory.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\LevelEntry.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Level\LevelData.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Samples\Components\Graphics.h">
+      <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Classic\Samples\Messages\SetPosition.h">
+      <Filter>Samples\Messages\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

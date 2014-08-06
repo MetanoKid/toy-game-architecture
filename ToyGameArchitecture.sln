@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ToyGameArchitecture", "Proj
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Classic version", "Projects\Classic\Classic version.vcxproj", "{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Evolved version", "Projects\Evolved\Evolved version.vcxproj", "{9E7E9685-541A-4E42-AE06-FAD2ED301761}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Debug|Win32.Build.0 = Debug|Win32
 		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Release|Win32.ActiveCfg = Release|Win32
 		{BEA4AE23-63DE-4E16-8408-B7D4F99A038F}.Release|Win32.Build.0 = Release|Win32
+		{9E7E9685-541A-4E42-AE06-FAD2ED301761}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E7E9685-541A-4E42-AE06-FAD2ED301761}.Debug|Win32.Build.0 = Debug|Win32
+		{9E7E9685-541A-4E42-AE06-FAD2ED301761}.Release|Win32.ActiveCfg = Release|Win32
+		{9E7E9685-541A-4E42-AE06-FAD2ED301761}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
