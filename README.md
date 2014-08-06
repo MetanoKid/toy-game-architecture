@@ -23,7 +23,7 @@ I'll try to achieve those goals by creating three variants of game architectures
 
 ## Classic game architecture
 
-**Completed**
+Status: **Completed**
 
 Within this approach every entity is basically a *container of components*. Entities don't define behavior other than managing components and there's no entity hierarchy; instead, they relay on [duck typing](http://en.wikipedia.org/wiki/Duck_typing "Duck typing on Wikipedia").
 
@@ -54,7 +54,7 @@ These formats are arbitrary selected and used to prevent dependencies with exter
 
 ## Evolved game architecture
 
-**To be started**
+Status: **In progress**
 
 The first approach has the basics of a component-based game architecture. However, there are some parts of it that could be improved. This approach will try to evolve that base and create a better game architecture.
 
@@ -82,7 +82,7 @@ Using this new way of defining levels we might argue that `blueprints` aren't ne
 
 ## Frankenstein game architecture
 
-**To be studied**
+Status: **To be studied**
 
 After we've created the evolved version of the game architecture there are still some things to be explored:
 
