@@ -58,7 +58,7 @@ Status: **In progress**
 
 The first approach has the basics of a component-based game architecture. However, there are some parts of it that could be improved. This approach will try to evolve that base and create a better game architecture.
 
-Entities won't exist as presented. They won't be a container of components, but just a number. That way, components will know what entity they live in by having that identifier.
+Entities won't exist as presented. They won't be a container of components, but just a number. That way, components will know what entity they live in by having that identifier. Of course, since entities don't exist as such anymore someone has to manage components, and that will be the Level itself.
 
 Messaging changes as well. Components will register themselves in a *publish / subscribe topic* so there's no need to ask components if they are interested in a specific message. Messages will be managed through an *object pool*, trying to minimize the possible overhead of instantiating and destroying messages each frame.
 
@@ -88,7 +88,7 @@ After we've created the evolved version of the game architecture there are still
 
 - The ability of creating entity `archetypes` so we could define *data-hierarchies*.
 
-- One of my teachers at my Master's Degree once said: *There's no better message than a call to a function*. Within this approach, components will be able to access other components and won't be any messaging system to be used. Components may define a *dependency injection* section in their life cycle so they can receive references to those components. It creates coupling, but it's a nice feature to be explored.
+- One of my teachers at my Master's Degree once said: *There's no better message than a direct function call*. Within this approach, components will be able to access other components and won't be any messaging system to be used. Components may define a *dependency injection* section in their life cycle so they can receive references to those components. It creates coupling, but it's a nice feature to be explored.
 
 - In game development we should always try to minimize the amount of time that takes to perform empty operations. If none of the entities in the level were active, that should take zero time to perform a tick. The same goes for individual components: if we want to turn off every component in an entity, processing the tick for the components should take zero time.
 

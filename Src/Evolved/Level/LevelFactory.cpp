@@ -6,7 +6,7 @@
 #include "Level.h"
 #include "LevelEntry.h"
 #include "Evolved/Entity/EntityFactory.h"
-#include "Evolved/Entity/Entity.h"
+#include "Application/Macros.h"
 
 namespace Evolved {
 
@@ -64,12 +64,14 @@ namespace Evolved {
 			// now that we've read the entity data from the level, create a new
 			// entity without properties, just structure (components)
 			// this is part of the two-step initialization: first structure then data
-			CEntity *entity = CEntityFactory::getInstance().build(levelEntry.type);
-			entity->setName(levelEntry.name);
-			entity->setType(levelEntry.type);
+			TEntityID entityID = CEntityID::nextID();
+			CEntityData entity(CEntityFactory::getInstance().build(entityID, levelEntry.type));
+			entity.name = levelEntry.name;
+			entity.type = levelEntry.type;
+			entity.data = levelEntry.properties;
 
 			// store data for second step when adding to the level
-			level->addEntity(entity, levelEntry.properties);
+			level->addEntity(entityID, entity);
 		}
 
 		return level;

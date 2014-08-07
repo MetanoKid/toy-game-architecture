@@ -108,6 +108,7 @@ namespace Classic {
 		}
 
 		_entities.clear();
+		_entitiesData.clear();
 	}
 
 }

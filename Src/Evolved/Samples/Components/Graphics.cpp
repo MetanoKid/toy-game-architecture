@@ -1,6 +1,5 @@
 #include "Graphics.h"
 
-#include "Evolved/Entity/Entity.h"
 #include "Evolved/Samples/Messages/SetPosition.h"
 
 namespace Evolved {

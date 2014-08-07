@@ -16,19 +16,20 @@ namespace Evolved {
 	class CEntityID {
 	private:
 		/**
-		Some constants for the structure.
-		*/
-		enum {
-			FIRST_ID = 0x00000000,
-			LAST_ID = 0xFFFFFFFF
-		};
-
-		/**
 		Next available ID.
 		*/
 		static TEntityID _nextID;
 
 	public:
+		/**
+		Some constants for the structure.
+		*/
+		enum {
+			FIRST_ID = 0x00000000,
+			LAST_ID = 0xFFFFFFFE,
+			UNASSIGNED = 0xFFFFFFFF
+		};
+
 		/**
 		Gets the next available ID.
 		*/

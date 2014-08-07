@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "ComponentFactory.h"
+#include "Evolved/Entity/EntityID.h"
 #include "Evolved/Level/LevelData.h"
 
 namespace Evolved {
@@ -12,7 +13,6 @@ namespace Evolved {
 	/**
 	Forward declarations.
 	*/
-	class CEntity;
 	class CLevelData;
 	class CLevel;
 
@@ -45,7 +45,7 @@ namespace Evolved {
 		/**
 		The entity this component is associated to.
 		*/
-		CEntity *_entity;
+		TEntityID _entity;
 
 		/**
 		Tells whether or not a message is accepted by this component.
@@ -103,12 +103,12 @@ namespace Evolved {
 		/**
 		Gets the entity to which this component is associated.
 		*/
-		CEntity *getEntity() const;
+		const TEntityID &getEntity() const;
 
 		/**
 		Sets the entity to which this component is associated.
 		*/
-		void setEntity(CEntity *entity);
+		void setEntity(const TEntityID &entity);
 
 		/**
 		Tries to add a message to this component's queue of messages.

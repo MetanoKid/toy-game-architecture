@@ -6,7 +6,6 @@
 #include "Level/Level.h"
 
 // these next includes exist because of our sample test
-#include "Entity/Entity.h"
 #include "Samples/Messages/SetPosition.h"
 
 namespace Evolved {
@@ -79,9 +78,6 @@ namespace Evolved {
 			// tick our level with a controlled delta time
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
 
-			// clean entities which were scheduled to be deleted
-			CEntityFactory::getInstance().deletePendingEntities();
-
 			// next loop
 			loopCount++;
 		}
@@ -92,18 +88,16 @@ namespace Evolved {
 			Since we need a way to test a sample application, we must have even better control
 			of what's happening. So, we'll simulate an execution.
 			*/
-			CEntity *entity = _currentLevel->getEntityByID(0);
+			TEntityID entity = CEntityID::FIRST_ID;
 
 			// first tick (it does nothing)
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
-			CEntityFactory::getInstance().deletePendingEntities();
 
 			// send a message
-			entity->sendMessage(new Samples::Messages::CSetPosition(Vector3(1.0f, 0.0f, 0.0f)));
+			_currentLevel->sendMessage(entity, new Samples::Messages::CSetPosition(Vector3(1.0f, 0.0f, 0.0f)));
 
 			// second tick (message is processed)
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
-			CEntityFactory::getInstance().deletePendingEntities();
 		}
 
 		// deactivate it, as part of its life cycle

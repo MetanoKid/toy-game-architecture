@@ -2,10 +2,10 @@
 #include <fstream>
 
 #include "EntityFactory.h"
-#include "Blueprint.h"
-#include "Entity.h"
-#include "EntityID.h"
 
+#include "Blueprint.h"
+#include "EntityID.h"
+#include "Evolved/Components/Component.h"
 #include "Evolved/Components/ComponentFactory.h"
 #include "Evolved/Level/Level.h"
 #include "Application/Macros.h"
@@ -71,42 +71,24 @@ namespace Evolved {
 		return *_instance;
 	}
 
-	CEntity *CEntityFactory::build(const std::string &entityType) const {
+	CEntityData CEntityFactory::build(const TEntityID &id, const std::string &entityType) const {
 		// do we have the type?
 		assert(_blueprints.count(entityType) != 0 && "Blueprint couldn't be found.");
 
-		// create the entity, which won't have any component or data yet
-		CEntity *entity = new CEntity(CEntityID::nextID());
+		// create the entity data, which won't have any component or anything yet
+		CEntityData entity;
 
 		// build its components
 		CBlueprint blueprint = _blueprints.find(entityType)->second;
 		FOR_IT_CONST(CBlueprint::TComponentNames, it, blueprint.components) {
 			IComponent *component = CComponentFactory::getInstance().build(*it);
-			entity->addComponent(component);
+			entity.components.push_back(component);
+
+			component->setEntity(id);
 		}
 
 		// and return it
 		return entity;
-	}
-
-	void CEntityFactory::deferDeleteEntity(CEntity *entity) {
-		_entitiesToBeDeleted.push_back(entity);
-	}
-
-	void CEntityFactory::deletePendingEntities() {
-		FOR_IT_CONST(TEntities, it, _entitiesToBeDeleted) {
-			CEntity *entity = *it;
-
-			if(entity) {
-				// remove the entity from its level
-				entity->getLevel()->removeEntity(entity);
-
-				// and delete it
-				delete entity;
-			}
-		}
-
-		_entitiesToBeDeleted.clear();
 	}
 
 }

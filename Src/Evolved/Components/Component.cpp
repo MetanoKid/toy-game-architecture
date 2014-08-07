@@ -4,7 +4,7 @@
 
 namespace Evolved {
 
-	IComponent::IComponent() : _entity(NULL) {
+	IComponent::IComponent() : _entity(CEntityID::UNASSIGNED) {
 
 	}
 
@@ -50,11 +50,11 @@ namespace Evolved {
 		// to be overriden by child components
 	}
 
-	CEntity *IComponent::getEntity() const {
+	const TEntityID &IComponent::getEntity() const {
 		return _entity;
 	}
 
-	void IComponent::setEntity(CEntity *entity) {
+	void IComponent::setEntity(const TEntityID &entity) {
 		_entity = entity;
 	}
 

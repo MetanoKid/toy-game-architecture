@@ -1,6 +1,18 @@
 #include "Classic/Application.h"
 #include "Evolved/Application.h"
 
+/**
+Entry point of this architecture, to show its behavior and flow during the executions.
+Every approach is presented here and a simple execution is provided. There are no console
+messages to know what's happening unless you add them, but you can turn on the debugger
+at any point and start checking its flow.
+
+It's been proven free of memory leaks with Visual Leak Detector but be careful if you
+comment out an approach totally: by the way components are registered into their factories,
+we need to release those factories so everything is cleared. That's why every
+application.release() is important and can't be removed, or else leaks will appear.
+@see Component.h to get more info on this restriction.
+*/
 int main(int argc, char **argv) {
 	// classic approach
 	{

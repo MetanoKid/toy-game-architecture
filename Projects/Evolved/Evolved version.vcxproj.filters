@@ -72,9 +72,6 @@
     <ClCompile Include="..\..\Src\Evolved\Components\ComponentFactory.cpp">
       <Filter>Components\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Evolved\Entity\Entity.cpp">
-      <Filter>Entity\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Evolved\Entity\EntityFactory.cpp">
       <Filter>Entity\Source Files</Filter>
     </ClCompile>
@@ -116,9 +113,6 @@
     <ClInclude Include="..\..\Src\Evolved\Entity\Blueprint.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Evolved\Entity\Entity.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>
@@ -154,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Samples\Messages\SetPosition.h">
       <Filter>Samples\Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h">
+      <Filter>Entity\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

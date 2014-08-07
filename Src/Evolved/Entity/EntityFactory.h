@@ -5,13 +5,10 @@
 #include <vector>
 
 #include "Blueprint.h"
+#include "EntityID.h"
+#include "EntityData.h"
 
 namespace Evolved {
-
-	/**
-	Forward declarations.
-	*/
-	class CEntity;
 
 	/**
 	The task of creating and destroying entities is delegated to this factory.
@@ -42,16 +39,6 @@ namespace Evolved {
 		an entity. It's cached when instantiating the factory.
 		*/
 		TBlueprints _blueprints;
-
-		/**
-		Alias for a vector of entities which will be deleted.
-		*/
-		typedef std::vector<CEntity *> TEntities;
-
-		/**
-		Vector of entities which are requested to be deleted.
-		*/
-		TEntities _entitiesToBeDeleted;
 
 		/**
 		Basic constructor, private as a part of the singleton pattern.
@@ -99,20 +86,7 @@ namespace Evolved {
 		Creates an entity given a type. That will create the basic data, instantiate
 		components for that entity and set it up.
 		*/
-		CEntity *build(const std::string &entityType) const;
-
-		/**
-		Entities can't be deleted at any time, and even less during level's tick because we're
-		iterating over every entity in the level, and our iterator would get corrupted.
-		To prevent that, we enqueue the entity to be deleted. Later on, we'll really delete
-		every entity which is part of that queue.
-		*/
-		void deferDeleteEntity(CEntity *entity);
-
-		/**
-		Deletes every entity which was requested to be deleted.
-		*/
-		void deletePendingEntities();
+		CEntityData build(const TEntityID &id, const std::string &entityType) const;
 	};
 
 }

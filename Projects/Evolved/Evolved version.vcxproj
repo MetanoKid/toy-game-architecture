@@ -14,7 +14,6 @@
     <ClCompile Include="..\..\Src\Evolved\Application.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Components\ComponentFactory.cpp" />
-    <ClCompile Include="..\..\Src\Evolved\Entity\Entity.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Entity\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Entity\EntityID.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Level\Level.cpp" />
@@ -30,7 +29,7 @@
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h" />
     <ClInclude Include="..\..\Src\Evolved\Components\ComponentFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\Blueprint.h" />
-    <ClInclude Include="..\..\Src\Evolved\Entity\Entity.h" />
+    <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityID.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\Level.h" />
