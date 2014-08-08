@@ -2,15 +2,21 @@
 
 #include "Evolved/Components/Component.h"
 #include "Evolved/Messages/Message.h"
+#include "Evolved/Messages/MessageTopic.h"
 #include "Application/Macros.h"
 
 namespace Evolved {
 
-	CLevel::CLevel() : _initialized(false) {
+	CLevel::CLevel() : _initialized(false), _messageTopic(new Messages::CMessageTopic()) {
 
 	}
 
 	CLevel::~CLevel() {
+		if(_messageTopic) {
+			delete _messageTopic;
+			_messageTopic = NULL;
+		}
+
 		_entitiesToBeDeleted.clear();
 		destroyAllEntities();
 	}
@@ -53,11 +59,17 @@ namespace Evolved {
 			itEntity->second.active = true;
 		}
 
+		// now that every component is activated, suscribe them all
+		suscribeEntities();
+
 		return true;
 	}
 
 	void CLevel::deactivate() {
 		assert(_initialized && "A level can't be deactivated before being initialized.");
+
+		// unsuscribe components from our message topic
+		unsuscribeEntities();
 
 		// iterate over entities
 		FOR_IT_CONST(TEntities, itEntity, _entities) {
@@ -161,38 +173,6 @@ namespace Evolved {
 		return it->second.active;
 	}
 
-	bool CLevel::sendMessage(const TEntityID &destination, Messages::CMessage *message,
-	                         IComponent *emitter) {
-		// find the entity, if it exists
-		TEntities::const_iterator itEntity = _entities.find(destination);
-
-		if(itEntity != _entities.end()) {
-			const CEntityData &data = itEntity->second;
-
-			if(data.active) {
-				// now iterate over every component and send them the message
-				// due to the nature of the messages in this architecture, we'll have to
-				// check if the message was enqueued by any component
-				bool enqueued = false;
-
-				FOR_IT_CONST(TComponents, itComponent, data.components) {
-					if(*itComponent != emitter) {
-						enqueued = (*itComponent)->enqueueMessage(message) || enqueued;
-					}
-				}
-
-				// if no component accepted the message, then we are safe to delete it
-				if(!enqueued) {
-					delete message;
-				}
-
-				return enqueued;
-			}
-		}
-
-		return false;
-	}
-
 	void CLevel::destroyAllEntities() {
 		// iterate over entities
 		FOR_IT_CONST(TEntities, itEntity, _entities) {
@@ -229,6 +209,37 @@ namespace Evolved {
 		}
 
 		_entitiesToBeDeleted.clear();
+	}
+
+	bool CLevel::sendMessage(const TEntityID &destination, Messages::CMessage *message,
+	                         IComponent *emitter) {
+		return _messageTopic->sendMessage(destination, message, emitter);
+	}
+
+	void CLevel::suscribeEntities() {
+		// temporal WishList to pass around components (we're reusing it, instead of creating more)
+		Messages::CWishList wishList;
+
+		FOR_IT_CONST(TEntities, itEntity, _entities) {
+			const CEntityData &data = itEntity->second;
+
+			FOR_IT_CONST(TComponents, itComponent, data.components) {
+				// ask the component to tell which messages are important for it
+				(*itComponent)->populateWishList(wishList);
+
+				// now suscribe the component to those messages
+				_messageTopic->suscribe(*itComponent, wishList);
+
+				// and clear our temporal WishList, to get ready for next iteration
+				wishList.clear();
+			}
+		}
+	}
+
+	void CLevel::unsuscribeEntities() {
+		FOR_IT_CONST(TEntities, itEntity, _entities) {
+			_messageTopic->unsuscribe(itEntity->first);
+		}
 	}
 
 }

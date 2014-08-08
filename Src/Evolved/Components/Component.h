@@ -7,6 +7,7 @@
 #include "ComponentFactory.h"
 #include "Evolved/Entity/EntityID.h"
 #include "Evolved/Level/LevelData.h"
+#include "Evolved/Messages/WishList.h"
 
 namespace Evolved {
 
@@ -46,12 +47,6 @@ namespace Evolved {
 		The entity this component is associated to.
 		*/
 		TEntityID _entity;
-
-		/**
-		Tells whether or not a message is accepted by this component.
-		Must be overriden by child components if they want to say what they accept.
-		*/
-		virtual bool accept(Messages::CMessage *message) const;
 
 		/**
 		Processes a message this component accepts.
@@ -111,9 +106,15 @@ namespace Evolved {
 		void setEntity(const TEntityID &entity);
 
 		/**
-		Tries to add a message to this component's queue of messages.
+		Adds a message to this component's queue of messages.
 		*/
-		bool enqueueMessage(Messages::CMessage *message);
+		void enqueueMessage(Messages::CMessage *message);
+
+		/**
+		Populates a message WishList in which this component is interested in.
+		Must be overriden by child components if they want to say what they accept.
+		*/
+		virtual void populateWishList(Messages::CWishList &wishList) const;
 	};
 
 	/**

@@ -102,6 +102,9 @@
     <ClCompile Include="..\..\Src\Evolved\Samples\Messages\SetPosition.cpp">
       <Filter>Samples\Messages\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Messages\MessageTopic.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h">
@@ -151,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h">
       <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Messages\MessageTopic.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Messages\WishList.h">
+      <Filter>Messages\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

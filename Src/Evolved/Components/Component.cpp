@@ -58,25 +58,18 @@ namespace Evolved {
 		_entity = entity;
 	}
 
-	bool IComponent::accept(Messages::CMessage *message) const {
+	void IComponent::populateWishList(Messages::CWishList &wishList) const {
 		// to be overriden by child components
-		return false;
 	}
 
 	void IComponent::process(Messages::CMessage *message) {
 		// to be overriden by child components
 	}
 
-	bool IComponent::enqueueMessage(Messages::CMessage *message) {
-		bool accepted = accept(message);
-
-		if(accepted) {
-			// add a reference and add enqueue the message
-			message->addReference();
-			_messages.push_back(message);
-		}
-
-		return accepted;
+	void IComponent::enqueueMessage(Messages::CMessage *message) {
+		// add a reference and add enqueue the message
+		message->addReference();
+		_messages.push_back(message);
 	}
 
 }

@@ -31,8 +31,9 @@ namespace Evolved {
 				return true;
 			}
 
-			bool CGraphics::accept(Evolved::Messages::CMessage *message) const {
-				return message->getType() == Evolved::Messages::SET_POSITION;
+			void CGraphics::populateWishList(Evolved::Messages::CWishList &wishList) const {
+				// we're interested in these messages:
+				wishList.add<Messages::CSetPosition>();
 			}
 
 			void CGraphics::process(Evolved::Messages::CMessage *message) {

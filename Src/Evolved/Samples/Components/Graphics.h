@@ -45,11 +45,6 @@ namespace Evolved {
 				bool spawn(const CLevelData &data, CLevel *level);
 
 				/**
-				Tells whether or not this component is interested in a message.
-				*/
-				bool accept(Evolved::Messages::CMessage *message) const;
-
-				/**
 				Processes a message in which this component is interested.
 				*/
 				void process(Evolved::Messages::CMessage *message);
@@ -68,6 +63,12 @@ namespace Evolved {
 				Perform per-frame behavior.
 				*/
 				void tick(float secs);
+
+				/**
+				Populates a message WishList in which this component is interested in.
+				Must be overriden by child components if they want to say what they accept.
+				*/
+				virtual void populateWishList(Evolved::Messages::CWishList &wishList) const;
 			};
 
 			REGISTER_COMPONENT(CGraphics);

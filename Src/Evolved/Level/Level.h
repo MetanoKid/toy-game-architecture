@@ -17,6 +17,7 @@ namespace Evolved {
 
 	namespace Messages {
 		class CMessage;
+		class CMessageTopic;
 	}
 
 	/**
@@ -56,6 +57,11 @@ namespace Evolved {
 		TDeferredEntities _entitiesToBeDeleted;
 
 		/**
+		Message topic responsible of managing messaging and suscriptions.
+		*/
+		Messages::CMessageTopic *_messageTopic;
+
+		/**
 		Flag which stores whether or not the level has been initialized already.
 		*/
 		bool _initialized;
@@ -69,6 +75,16 @@ namespace Evolved {
 		Deletes every entity which was requested to be deleted.
 		*/
 		void deletePendingEntities();
+
+		/**
+		Creates suscriptions for every entity in the level.
+		*/
+		void suscribeEntities();
+
+		/**
+		Destroys suscriptions for every entity in the level.
+		*/
+		void unsuscribeEntities();
 
 	public:
 		/**
