@@ -8,17 +8,22 @@
 #include "Evolved/Components/Component.h"
 #include "Evolved/Components/ComponentFactory.h"
 #include "Evolved/Level/Level.h"
+#include "Evolved/Config/Config.h"
 #include "Application/Macros.h"
 
 namespace Evolved {
-
-#define BLUEPRINTS_FILE_PATH "blueprints.txt"
 
 	CEntityFactory *CEntityFactory::_instance = NULL;
 
 	CEntityFactory::CEntityFactory() {
 		// open blueprints file and load it into our structure
-		std::ifstream in(BLUEPRINTS_FILE_PATH);
+		std::string fileName;
+
+		if(!CConfig::getInstance().get<std::string>("blueprints", fileName)) {
+			assert(false && "Couldn't find property blueprints in the config file.");
+		}
+
+		std::ifstream in(fileName);
 
 		assert(in && "Blueprints file could not be opened.");
 

@@ -6,15 +6,14 @@
 
 #include "ComponentFactory.h"
 #include "Evolved/Entity/EntityID.h"
-#include "Evolved/Level/LevelData.h"
 #include "Evolved/Messages/WishList.h"
+#include "Evolved/Properties.h"
 
 namespace Evolved {
 
 	/**
 	Forward declarations.
 	*/
-	class CLevelData;
 	class CLevel;
 
 	namespace Messages {
@@ -70,7 +69,7 @@ namespace Evolved {
 		Initializes component's basic data, as the second part of  the component's
 		initialization.
 		*/
-		virtual bool spawn(const CLevelData &data, CLevel *level);
+		virtual bool spawn(const CProperties &data, CLevel *level);
 
 		/**
 		Activates the component.

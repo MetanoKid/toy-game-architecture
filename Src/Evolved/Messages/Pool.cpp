@@ -64,7 +64,7 @@ namespace Evolved {
 				// temporal message used to create the entry
 				CMessage *message = itConstructor->second();
 
-				// remember: dinamically knowing type at run time
+				// remember: dynamically knowing type at run time
 				const std::type_info *type = &typeid(*message);
 
 				// store which type relates to which name

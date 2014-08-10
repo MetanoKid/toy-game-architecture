@@ -14,15 +14,16 @@
     <ClCompile Include="..\..\Src\Evolved\Application.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Components\Component.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Components\ComponentFactory.cpp" />
+    <ClCompile Include="..\..\Src\Evolved\Config\Config.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Entity\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Entity\EntityID.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Level\Level.cpp" />
-    <ClCompile Include="..\..\Src\Evolved\Level\LevelData.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Level\LevelFactory.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Messages\Message.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Messages\MessageTopic.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Messages\NotSoSmartPointer.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Messages\Pool.cpp" />
+    <ClCompile Include="..\..\Src\Evolved\Properties.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Samples\Components\Graphics.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Samples\Messages\SetPosition.cpp" />
   </ItemGroup>
@@ -30,12 +31,12 @@
     <ClInclude Include="..\..\Src\Evolved\Application.h" />
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h" />
     <ClInclude Include="..\..\Src\Evolved\Components\ComponentFactory.h" />
+    <ClInclude Include="..\..\Src\Evolved\Config\Config.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\Blueprint.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityID.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\Level.h" />
-    <ClInclude Include="..\..\Src\Evolved\Level\LevelData.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\LevelEntry.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\LevelFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\Message.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="..\..\Src\Evolved\Messages\NotSoSmartPointer.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\Pool.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\WishList.h" />
+    <ClInclude Include="..\..\Src\Evolved\Properties.h" />
     <ClInclude Include="..\..\Src\Evolved\Samples\Components\Graphics.h" />
     <ClInclude Include="..\..\Src\Evolved\Samples\Messages\SetPosition.h" />
   </ItemGroup>

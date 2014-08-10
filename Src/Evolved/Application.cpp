@@ -5,15 +5,12 @@
 #include "Level/LevelFactory.h"
 #include "Level/Level.h"
 #include "Messages/Pool.h"
+#include "Config/Config.h"
 
 // these next includes exist because of our sample test
 #include "Samples/Messages/SetPosition.h"
 
 namespace Evolved {
-
-#define LEVEL_TO_BUILD "Level.txt"
-#define GAME_LOOP_MAX_REPETITIONS 1
-#define CONTROLLED_DELTA_TIME 0.16f
 
 	CApplication *CApplication::_instance = NULL;
 
@@ -23,6 +20,7 @@ namespace Evolved {
 		CComponentFactory::getInstance();
 		CEntityFactory::getInstance();
 		CLevelFactory::getInstance();
+		CConfig::getInstance();
 	}
 
 	CApplication::~CApplication() {
@@ -32,6 +30,7 @@ namespace Evolved {
 		}
 
 		// clean up every subsystem in the architecture
+		CConfig::release();
 		CEntityFactory::release();
 		CLevelFactory::release();
 		CComponentFactory::release();
@@ -52,7 +51,13 @@ namespace Evolved {
 
 	bool CApplication::initialize() {
 		// perform application's initialization stuff, like loading a level
-		_currentLevel = CLevelFactory::getInstance().build(LEVEL_TO_BUILD);
+		std::string fileName;
+
+		if(!CConfig::getInstance().get<std::string>("level", fileName)) {
+			assert(false && "Couldn't find property level in the config file.");
+		}
+
+		_currentLevel = CLevelFactory::getInstance().build(fileName);
 
 		return _currentLevel->initialize();
 	}
@@ -87,6 +92,13 @@ namespace Evolved {
 		*/
 
 		{
+			// extract the controlled delta time from the config file
+			float deltaTime;
+
+			if(!CConfig::getInstance().get<float>("controlled_delta_time", deltaTime)) {
+				deltaTime = 0.16f;
+			}
+
 			/**
 			Since we need a way to test a sample application, we must have even better control
 			of what's happening. So, we'll simulate an execution.
@@ -94,7 +106,7 @@ namespace Evolved {
 			TEntityID entity = CEntityID::FIRST_ID;
 
 			// first tick (it does nothing)
-			_currentLevel->tick(CONTROLLED_DELTA_TIME);
+			_currentLevel->tick(deltaTime);
 
 			// send a message
 			Messages::CPool &pool = Messages::CPool::getInstance();
@@ -103,7 +115,7 @@ namespace Evolved {
 			_currentLevel->sendMessage(entity, message);
 
 			// second tick (message is processed)
-			_currentLevel->tick(CONTROLLED_DELTA_TIME);
+			_currentLevel->tick(deltaTime);
 		}
 
 		// deactivate it, as part of its life cycle

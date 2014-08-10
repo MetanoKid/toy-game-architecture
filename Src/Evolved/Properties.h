@@ -1,5 +1,5 @@
-#ifndef Evolved_LevelData_H
-#define Evolved_LevelData_H
+#ifndef Evolved_Properties_H
+#define Evolved_Properties_H
 
 #include <string>
 #include <map>
@@ -10,12 +10,26 @@
 namespace Evolved {
 
 	/**
-	Every level file contains a number of entities and their data. After the entities
-	are built and their components are instantiated, then they are spawned with their
-	actual data. That's the second step of their initialization.
-	This type stores that data and provides a get function to obtain properties.
+	Trims a string from both start and end
 	*/
-	class CLevelData {
+	inline std::string trim(const std::string &str) {
+		int first = str.find_first_not_of(' ');
+		int last = str.find_last_not_of(' ');
+		return str.substr(first, last - first + 1);
+	}
+
+	/**
+	This class stores a map of properties for multiple uses.
+	Level files define a number of entities and the data associated to them. That data
+	is stored in a properties map.
+	Config file defines a number of configuration properties (i.e. file names), which
+	are stored in a properties map as well.
+	This class provides a way to extract those properties for different types.
+	Instead of storing values themselves in a void* map and then performing casts when
+	extracting, we store them as strings and let the user extract them as the type they
+	want (and thus having different ways of using properties).
+	*/
+	class CProperties {
 	private:
 		/**
 		Alias for our map of properties.
@@ -26,6 +40,14 @@ namespace Evolved {
 		Internal map of properties.
 		*/
 		TProperties _properties;
+
+		/**
+		When parsing, since we might need it in several places, we provide a way of requiring
+		having tabulation for the properties.
+		That way, we can require one tab for entity data in a level, or require none for
+		config properties (or other amount, in fact).
+		*/
+		unsigned int _requiredTabs;
 
 		/**
 		To abstract and reuse our get function, we provide a private and more generic
@@ -72,12 +94,12 @@ namespace Evolved {
 		/**
 		Default constructor.
 		*/
-		CLevelData();
+		CProperties(unsigned int requiredTabs = 0);
 
 		/**
 		Default destructor.
 		*/
-		~CLevelData();
+		~CProperties();
 
 		/**
 		Adds a property into the data structure. It doesn't allow duplicates.
@@ -122,6 +144,46 @@ namespace Evolved {
 			outValue = it->second;
 			return true;
 		}
+
+		/**
+		Parses properties from a stream into the properties map.
+		*/
+		friend std::istream &operator>>(std::istream &is, CProperties &entry) {
+			// we'll use these variables to extract properties data
+			std::string name;
+			std::string value;
+			std::string aux;
+			std::istringstream iss;
+
+			// start processing properties
+			std::getline(is, aux, '\n');
+
+			while(!aux.empty()) {
+				assert(aux.find('\t') == (entry._requiredTabs - 1) && "Incorrect number of tabs for a property.");
+
+				// reuse the string stream using the line we've read
+				iss.str(aux);
+				iss.clear();
+
+				iss >> name;
+				std::getline(iss, value, '\n');
+
+				// add the property
+				entry.put(name, trim(value));
+
+				// was that the last line?
+				if(is.eof()) {
+					break;
+				}
+
+				// now, get next line to continue processing
+				std::getline(is, aux, '\n');
+			}
+
+			return is;
+		}
+
+		void setRequiredTabs(unsigned int requiredTabs);
 	};
 
 }

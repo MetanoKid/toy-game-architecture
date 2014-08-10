@@ -1,0 +1,4 @@
+blueprints blueprints.txt
+level Level.txt
+game_loop_max_repetitions 1
+controlled_delta_time 0.16

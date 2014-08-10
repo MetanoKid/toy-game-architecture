@@ -64,6 +64,15 @@
     <Filter Include="Samples\Messages\Source Files">
       <UniqueIdentifier>{4fe0aec0-25ca-407b-9ad3-7a3017539876}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{887d6399-1523-4b2e-8825-19a1e5070e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Header Files">
+      <UniqueIdentifier>{df34237d-47da-4101-bbac-82c7cbd4c0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Source Files">
+      <UniqueIdentifier>{f1d4d13c-93cc-4e39-a462-2c3e78a666d4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Evolved\Components\Component.cpp">
@@ -79,9 +88,6 @@
       <Filter>Entity\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Evolved\Level\Level.cpp">
-      <Filter>Level\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Evolved\Level\LevelData.cpp">
       <Filter>Level\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Evolved\Level\LevelFactory.cpp">
@@ -108,6 +114,12 @@
     <ClCompile Include="..\..\Src\Evolved\Messages\Pool.cpp">
       <Filter>Messages\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Properties.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Config\Config.cpp">
+      <Filter>Config\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h">
@@ -129,9 +141,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Level\Level.h">
-      <Filter>Level\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Evolved\Level\LevelData.h">
       <Filter>Level\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Level\LevelEntry.h">
@@ -169,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Messages\MessageComparator.h">
       <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Config\Config.h">
+      <Filter>Config\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

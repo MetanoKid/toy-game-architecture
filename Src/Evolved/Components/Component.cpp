@@ -17,7 +17,7 @@ namespace Evolved {
 		_messages.clear();
 	}
 
-	bool IComponent::spawn(const CLevelData &data, CLevel *level) {
+	bool IComponent::spawn(const CProperties &data, CLevel *level) {
 		// to be overriden by child classes
 		return true;
 	}

@@ -42,7 +42,7 @@ namespace Evolved {
 				/**
 				Called as the second part of the two-step initialization.
 				*/
-				bool spawn(const CLevelData &data, CLevel *level);
+				bool spawn(const CProperties &data, CLevel *level);
 
 				/**
 				Processes a message in which this component is interested.

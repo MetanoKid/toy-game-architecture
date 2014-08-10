@@ -5,18 +5,9 @@
 #include <sstream>
 #include <cassert>
 
-#include "LevelData.h"
+#include "Evolved/Properties.h"
 
 namespace Evolved {
-
-	/**
-	Trims a string from both start and end
-	*/
-	std::string trim(const std::string &str) {
-		int first = str.find_first_not_of(' ');
-		int last = str.find_last_not_of(' ');
-		return str.substr(first, last - first + 1);
-	}
 
 	/**
 	Every level has several entries which describe entities and their data.
@@ -36,7 +27,7 @@ namespace Evolved {
 		/**
 		Data associated to this entry.
 		*/
-		CLevelData properties;
+		CProperties properties;
 
 		/**
 		Processes an entry in the level file into a data structure.
@@ -78,34 +69,9 @@ namespace Evolved {
 			entry.name = trim(items[0]);
 			entry.type = trim(items[1]);
 
-			// we'll use these variables to extract properties data
-			std::string propertyName;
-			std::string propertyValue;
-
-			// start processing properties
-			std::getline(is, aux, '\n');
-
-			while(!aux.empty()) {
-				assert(aux.find('\t') == 0 && "Every property line must start with a tab.");
-
-				// reuse our string stream using the line
-				iss.str(aux);
-				iss.clear();
-
-				iss >> propertyName;
-				std::getline(iss, propertyValue, '\n');
-
-				// add the property to the struct
-				entry.properties.put(propertyName, trim(propertyValue));
-
-				// was this the last line?
-				if(is.eof()) {
-					break;
-				}
-
-				// get next line to continue processing
-				std::getline(is, aux, '\n');
-			}
+			// get properties data
+			entry.properties.setRequiredTabs(1);
+			is >> entry.properties;
 
 			return is;
 		}

@@ -6,7 +6,6 @@
 
 #include "Evolved/Entity/EntityID.h"
 #include "Evolved/Entity/EntityData.h"
-#include "Evolved/Level/LevelData.h"
 
 namespace Evolved {
 

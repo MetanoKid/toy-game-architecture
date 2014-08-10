@@ -18,7 +18,7 @@ namespace Evolved {
 
 			}
 
-			bool CGraphics::spawn(const CLevelData &data, CLevel *level) {
+			bool CGraphics::spawn(const CProperties &data, CLevel *level) {
 				// try to get some data, which we take as mandatory
 				if(data.get<std::string>("model", _modelName)) {
 					// got a model name, so now tell the graphics engine to load it
