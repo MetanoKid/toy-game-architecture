@@ -2,8 +2,11 @@
 
 #include <cassert>
 #include <algorithm>
+#include <fstream>
 
-#include "Evolved/Messages/Message.h"
+#include "Message.h"
+#include "Evolved/Config/Config.h"
+#include "Evolved/Properties.h"
 #include "Application/Macros.h"
 
 namespace Evolved {
@@ -60,6 +63,21 @@ namespace Evolved {
 		}
 
 		void CPool::initialize() {
+			// parse message instance count from a file
+			std::string fileName;
+
+			if(!CConfig::getInstance().get<std::string>("messages", fileName)) {
+				assert(false && "Couldn't find property messages in the config file.");
+			}
+
+			std::fstream in(fileName);
+			assert(in && "Message file couldn't be opened.");
+
+			// parse it from the file
+			CProperties messageInitData;
+			in >> messageInitData;
+
+			// now start creating messages
 			FOR_IT_CONST(TMessageConstructors, itConstructor, _messageConstructors) {
 				// temporal message used to create the entry
 				CMessage *message = itConstructor->second();
@@ -78,8 +96,14 @@ namespace Evolved {
 				delete message;
 
 				// we could use prior message as the first message for the entry, but there might be
-				// situations in which we don't want to create any message beforehand
-				for(unsigned int i = 0; i < 10; ++i) {
+				// situations in which we don't want to create any message beforehand and thus we'd
+				// have a 0 in the message file (or no entry at all)
+
+				// messages not defined in the message file have no instances by default
+				unsigned int instanceCount = 0;
+				messageInitData.get<unsigned int>(itConstructor->first, instanceCount);
+
+				for(unsigned int i = 0; i < instanceCount; ++i) {
 					built->push_back(itConstructor->second());
 				}
 			}

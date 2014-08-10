@@ -11,7 +11,7 @@ It's been proven free of memory leaks with Visual Leak Detector but be careful i
 comment out an approach totally: by the way components are registered into their factories,
 we need to release those factories so everything is cleared. That's why every
 application.release() is important and can't be removed, or else leaks will appear.
-@see Component.h to get more info on this restriction.
+@see Component.h, Message.h to get more info on this restriction.
 */
 int main(int argc, char **argv) {
 	// classic approach
