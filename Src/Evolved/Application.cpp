@@ -4,6 +4,7 @@
 #include "Entity/EntityFactory.h"
 #include "Level/LevelFactory.h"
 #include "Level/Level.h"
+#include "Messages/Pool.h"
 
 // these next includes exist because of our sample test
 #include "Samples/Messages/SetPosition.h"
@@ -21,6 +22,7 @@ namespace Evolved {
 		CComponentFactory::getInstance();
 		CEntityFactory::getInstance();
 		CLevelFactory::getInstance();
+		Messages::CPool::getInstance();
 	}
 
 	CApplication::~CApplication() {
@@ -33,6 +35,7 @@ namespace Evolved {
 		CEntityFactory::release();
 		CLevelFactory::release();
 		CComponentFactory::release();
+		Messages::CPool::release();
 	}
 
 	CApplication::CApplication(const CApplication &factory) {
@@ -94,7 +97,10 @@ namespace Evolved {
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);
 
 			// send a message
-			_currentLevel->sendMessage(entity, new Samples::Messages::CSetPosition(Vector3(1.0f, 0.0f, 0.0f)));
+			Messages::CPool &pool = Messages::CPool::getInstance();
+			Samples::Messages::CSetPosition *message = pool.obtainMessage<Samples::Messages::CSetPosition>();
+			message->init(Vector3(1.0f, 0.0f, 0.0f));
+			_currentLevel->sendMessage(entity, message);
 
 			// second tick (message is processed)
 			_currentLevel->tick(CONTROLLED_DELTA_TIME);

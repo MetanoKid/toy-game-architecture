@@ -1,5 +1,7 @@
 #include "Message.h"
 
+#include "Pool.h"
+
 namespace Evolved {
 
 	namespace Messages {
@@ -14,6 +16,14 @@ namespace Evolved {
 
 		const TMessage &CMessage::getType() const {
 			return _type;
+		}
+
+		void CMessage::allReferencesReleased() {
+			release();
+		}
+
+		void CMessage::release() {
+			CPool::getInstance().releaseMessage(this);
 		}
 
 	}

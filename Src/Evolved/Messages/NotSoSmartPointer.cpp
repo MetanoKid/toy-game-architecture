@@ -20,7 +20,7 @@ namespace Evolved {
 			--_referenceCount;
 
 			if(_referenceCount == 0) {
-				delete this;
+				allReferencesReleased();
 			}
 		}
 

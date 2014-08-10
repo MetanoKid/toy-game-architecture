@@ -105,6 +105,9 @@
     <ClCompile Include="..\..\Src\Evolved\Messages\MessageTopic.cpp">
       <Filter>Messages\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Messages\Pool.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h">
@@ -159,6 +162,9 @@
       <Filter>Messages\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Messages\WishList.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Messages\Pool.h">
       <Filter>Messages\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,8 +6,7 @@ namespace Evolved {
 
 		namespace Messages {
 
-			CSetPosition::CSetPosition(const Vector3 &position) : CMessage(Evolved::Messages::SET_POSITION),
-				_position(position) {
+			CSetPosition::CSetPosition() : CMessage(Evolved::Messages::SET_POSITION) {
 
 			}
 
@@ -17,6 +16,16 @@ namespace Evolved {
 
 			const Vector3 &CSetPosition::getPosition() const {
 				return _position;
+			}
+
+			void CSetPosition::reset() {
+				_position = Vector3(0.0f, 0.0f, 0.0f);
+			}
+
+			CSetPosition *CSetPosition::init(const Vector3 &position) {
+				_position = position;
+
+				return this;
 			}
 
 		}

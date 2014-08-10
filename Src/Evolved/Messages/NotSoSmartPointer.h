@@ -19,6 +19,13 @@ namespace Evolved {
 			*/
 			unsigned int _referenceCount;
 
+		protected:
+			/**
+			When every references to this instance are released, let children classes
+			decide what they should do.
+			*/
+			virtual void allReferencesReleased() = 0;
+
 		public:
 			/**
 			Base constructor, will initialize the reference counter.

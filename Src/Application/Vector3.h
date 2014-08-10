@@ -8,6 +8,7 @@ namespace Application {
 	represent a point or a vector in the 3D space.
 	*/
 	struct Vector3 {
+
 		/**
 		Horizontal value.
 		*/
@@ -25,6 +26,13 @@ namespace Application {
 
 		/**
 		Default constructor.
+		*/
+		Vector3() : x(0.0f), y(0.0f), z(0.0f) {
+
+		}
+
+		/**
+		Basic constructor.
 		*/
 		Vector3(float x, float y, float z) : x(x), y(y), z(z) {
 

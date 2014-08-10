@@ -16,16 +16,17 @@ namespace Evolved {
 			*/
 			class CSetPosition : public Evolved::Messages::CMessage {
 			private:
+				friend class Evolved::Messages::CPool;
+
 				/**
 				New position of the entity.
 				*/
 				Vector3 _position;
 
-			public:
 				/**
-				Basic constructor, the only way of setting message's position.
+				Default constructor.
 				*/
-				CSetPosition(const Vector3 &position);
+				CSetPosition();
 
 				/**
 				Default destructor.
@@ -33,9 +34,20 @@ namespace Evolved {
 				~CSetPosition();
 
 				/**
+				Resets the message, ready to be used again.
+				*/
+				void reset();
+
+			public:
+				/**
 				Gets the position.
 				*/
 				const Vector3 &getPosition() const;
+
+				/**
+				Initializes the message.
+				*/
+				CSetPosition *init(const Vector3 &position);
 			};
 
 		}

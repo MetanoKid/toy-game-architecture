@@ -99,7 +99,7 @@ namespace Evolved {
 
 			// if nobody was interested in it, then we're safe to delete it
 			if(!enqueued) {
-				delete message;
+				message->release();
 			}
 
 			return enqueued;

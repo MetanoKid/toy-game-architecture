@@ -11,7 +11,7 @@ namespace Evolved {
 	IComponent::~IComponent() {
 		// destroy messages which weren't processed
 		FOR_IT_CONST(TMessages, it, _messages) {
-			delete(*it);
+			(*it)->release();
 		}
 
 		_messages.clear();
@@ -67,7 +67,7 @@ namespace Evolved {
 	}
 
 	void IComponent::enqueueMessage(Messages::CMessage *message) {
-		// add a reference and add enqueue the message
+		// add a reference and enqueue the message
 		message->addReference();
 		_messages.push_back(message);
 	}
