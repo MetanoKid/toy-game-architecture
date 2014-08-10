@@ -3,7 +3,7 @@
 #include <cassert>
 #include <algorithm>
 
-#include "Evolved/Samples/Messages/SetPosition.h"
+#include "Evolved/Messages/Message.h"
 #include "Application/Macros.h"
 
 namespace Evolved {
@@ -13,7 +13,7 @@ namespace Evolved {
 		CPool *CPool::_instance = NULL;
 
 		CPool::CPool() {
-			initialize();
+
 		}
 
 		CPool::~CPool() {
@@ -60,12 +60,22 @@ namespace Evolved {
 		}
 
 		void CPool::initialize() {
-			// temporary way of initializing. Future one will be extracting from message constructors
-			_messages[&typeid(Samples::Messages::CSetPosition)] = CMessageEntry();
-			TMessageList *built = &_messages[&typeid(Samples::Messages::CSetPosition)].ready;
+			FOR_IT_CONST(TMessageConstructors, itConstructor, _messageConstructors) {
+				// temporal message used to create the entry
+				CMessage *message = itConstructor->second();
 
-			for(unsigned int i = 0; i < 10; ++i) {
-				built->push_back(new Samples::Messages::CSetPosition());
+				// remember: dinamically knowing type at run time
+				_messages[&typeid(*message)] = CMessageEntry();
+				TMessageList *built = &_messages[&typeid(*message)].ready;
+
+				// not necessary anymore
+				delete message;
+
+				// we could use prior message as the first message for the entry, but there might be
+				// situations in which we don't want to create any message beforehand
+				for(unsigned int i = 0; i < 10; ++i) {
+					built->push_back(itConstructor->second());
+				}
 			}
 		}
 
@@ -78,11 +88,25 @@ namespace Evolved {
 			assert(itMessages != _messages.end() && "There's no pool entry for a released message.");
 
 			CMessageEntry *entry = &itMessages->second;
+
 			// remove message from the inUse list
+			// warning: it's pretty overkill to search for the message every time it's returned,
+			// transforming our pool in a possible performance bottleneck
+			// try to find a better way of locating it, like unions and linked list as pointed out
+			// by http://gameprogrammingpatterns.com/object-pool.html
+			// Or, lose track of a message until it's returned again (so, no need to keep an inUse list)
 			entry->inUse.erase(std::remove(entry->inUse.begin(),
 			                               entry->inUse.end(),
 			                               message));
 			entry->ready.push_back(message);
+		}
+
+		void CPool::add(const std::string &name, MessageInstantiator instantiator) {
+			/**
+			Each time we include a compilation unit of a component, it will be registered into this factory.
+			We'll just override its value since it's cheaper than looking for it and then doing nothing.
+			*/
+			_messageConstructors[name] = instantiator;
 		}
 
 	}

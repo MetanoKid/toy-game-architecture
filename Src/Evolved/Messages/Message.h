@@ -3,6 +3,7 @@
 
 #include "NotSoSmartPointer.h"
 #include "MessageType.h"
+#include "Pool.h"
 
 namespace Evolved {
 
@@ -62,6 +63,56 @@ namespace Evolved {
 
 	}
 
+	/**
+	Child messages must use these next macros to register themselves into the
+	message pool at start up.
+	*/
+
+	/**
+	This macro declares some static methods that are part of every child message
+	class that will be defined.
+	Must be used within the message class' declaration, preferable as the first entry.
+	The only parameter of the macro isn't used, but exists to provide an uniform structure.
+	*/
+#define DECLARE_MESSAGE(MessageClass) \
+public: \
+	/** \
+	Creates an instance of the message in which this is defined. \
+	*/ \
+	static Evolved::Messages::CMessage *create(); \
+	\
+	/** \
+	Registers the message into the message pool. \
+	*/ \
+	static bool registerMessage();
+
+	/**
+	This macro defines some static methods that are part of every message, declared by
+	macro DECLARE_MESSAGE.
+	Must be used when providing the implementation of a message.
+	*/
+#define IMPLEMENT_MESSAGE(MessageClass) \
+	Evolved::Messages::CMessage *MessageClass::create() { \
+		return new MessageClass(); \
+	} \
+	\
+	bool MessageClass::registerMessage() { \
+		Evolved::Messages::CPool::getInstance().add(#MessageClass, MessageClass::create); \
+		/* just return true always because we need to return something for REGISTER_MESSAGE macro to work correctly */ \
+		return true; \
+	}
+
+	/**
+	This macro registers the function to create an instance of the message into the
+	message pool.
+	Since we can't call a function unless it's part of a static variable, we create one for each
+	message that is registered. That variable will only be available within the message's file.
+	There will be one of these variables each time we include the compilation unit of a message.
+
+	@see CPool::add()
+	*/
+#define REGISTER_MESSAGE(MessageClass) \
+	static bool RegisteredInPool_##MessageClass = MessageClass::registerMessage();
 }
 
 #endif

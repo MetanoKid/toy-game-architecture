@@ -45,9 +45,10 @@ namespace Evolved {
 	}
 
 	void CComponentFactory::add(const std::string &name, ComponentInstantiator instantiator) {
-		// prevent duplicates
-		assert(_components.count(name) == 0 && "Trying to add a duplicated component.");
-
+		/**
+		Each time we include a compilation unit of a component, it will be registered into this factory.
+		We'll just override its value since it's cheaper than looking for it and then doing nothing.
+		*/
 		_components[name] = instantiator;
 	}
 

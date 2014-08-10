@@ -19,10 +19,10 @@ namespace Evolved {
 
 	CApplication::CApplication() {
 		// initialize every subsystem in the architecture
+		Messages::CPool::getInstance().initialize();
 		CComponentFactory::getInstance();
 		CEntityFactory::getInstance();
 		CLevelFactory::getInstance();
-		Messages::CPool::getInstance();
 	}
 
 	CApplication::~CApplication() {

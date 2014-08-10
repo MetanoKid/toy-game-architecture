@@ -6,6 +6,8 @@ namespace Evolved {
 
 		namespace Messages {
 
+			IMPLEMENT_MESSAGE(CSetPosition);
+
 			CSetPosition::CSetPosition() : CMessage(Evolved::Messages::SET_POSITION) {
 
 			}

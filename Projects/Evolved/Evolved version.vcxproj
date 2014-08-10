@@ -39,6 +39,7 @@
     <ClInclude Include="..\..\Src\Evolved\Level\LevelEntry.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\LevelFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\Message.h" />
+    <ClInclude Include="..\..\Src\Evolved\Messages\MessageComparator.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\MessageTopic.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\MessageType.h" />
     <ClInclude Include="..\..\Src\Evolved\Messages\NotSoSmartPointer.h" />

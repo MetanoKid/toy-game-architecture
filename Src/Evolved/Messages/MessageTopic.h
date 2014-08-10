@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "WishList.h"
+#include "MessageComparator.h"
 #include "Evolved/Entity/EntityID.h"
 
 namespace Evolved {
@@ -20,15 +21,6 @@ namespace Evolved {
 	}
 
 	namespace Messages {
-
-		/**
-		Compares two type_info using their own comparing function.
-		*/
-		struct CMessageComparator {
-			bool operator()(const std::type_info *a, const std::type_info *b) const {
-				return a->before(*b);
-			}
-		};
 
 		/**
 		Messaging is managed through a message topic which stores which components are

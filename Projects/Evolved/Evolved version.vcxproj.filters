@@ -167,5 +167,8 @@
     <ClInclude Include="..\..\Src\Evolved\Messages\Pool.h">
       <Filter>Messages\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Messages\MessageComparator.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -15,9 +15,9 @@ namespace Evolved {
 			has moved.
 			*/
 			class CSetPosition : public Evolved::Messages::CMessage {
-			private:
-				friend class Evolved::Messages::CPool;
+				DECLARE_MESSAGE(CSetPosition);
 
+			private:
 				/**
 				New position of the entity.
 				*/
@@ -49,6 +49,8 @@ namespace Evolved {
 				*/
 				CSetPosition *init(const Vector3 &position);
 			};
+
+			REGISTER_MESSAGE(CSetPosition);
 
 		}
 

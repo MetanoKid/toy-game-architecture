@@ -161,6 +161,9 @@ public: \
 	component factory.
 	Since we can't call a function unless it's part of a static variable, we create one for each
 	component that is registered. That variable will only be available within the component's file.
+	There will be one of these variables each time we include the compilation unit of a component.
+
+	@see CComponentFactory::add()
 	*/
 #define REGISTER_COMPONENT(ComponentClass) \
 	static bool RegisteredInFactory_##ComponentClass = ComponentClass::registerComponent();
