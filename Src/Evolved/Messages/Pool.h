@@ -28,6 +28,8 @@ namespace Evolved {
 		exist during the execution of the game. When some component needs to send a message,
 		it will ask the pool to provide one; when it's not useful anymore, the message is
 		returned to the pool for later reuse.
+		So, we trade possible fragmentation and creation/deletion performance for an increase
+		in memory consumption and supposedly quicker creation/deletion.
 		*/
 		class CPool {
 
@@ -105,6 +107,17 @@ namespace Evolved {
 			*/
 			TMessages _messages;
 
+			/**
+			Alias for a map which stores message types and the names used to store their instantiators.
+			*/
+			typedef std::map<const std::type_info *, std::string, CMessageComparator> TMessageNames;
+
+			/**
+			Map which links message types with the names used to store instantiators.
+			Used when we've run out of instances.
+			*/
+			TMessageNames _messageNames;
+
 		public:
 			/**
 			Initializes the pool with some messages for each type.
@@ -149,7 +162,19 @@ namespace Evolved {
 
 				// is there any message ready to be used?
 				if(entry->ready.size() == 0) {
-					return NULL;
+					/**
+					Pools can have different policies when they run out of instances to provide.
+					The simplest one is just to return NULL, which indicates we're out of instances.
+					Another one is to have an "overflow buffer". When we're asked for a message and
+					we don't have any ready, we check the buffer. If it's got any, we return it; else,
+					we create a new instance but keep track that it's not part of the normal pool.
+					Periodically, we clean that buffer up (i.e. each second) and have that time window
+					to keep up with the high demand.
+					Other policy, which is the one we're providing, consists on creating a new instance
+					and keeping it for the rest of the execution. It's simpler, but if we had a demand
+					peak we'll keep the extra instances even though they might not be used.
+					*/
+					entry->ready.push_back(_messageConstructors[_messageNames[&typeid(T)]]());
 				}
 
 				// extract a message, add it into the inUse list, and return it

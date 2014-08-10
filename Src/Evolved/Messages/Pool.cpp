@@ -65,7 +65,13 @@ namespace Evolved {
 				CMessage *message = itConstructor->second();
 
 				// remember: dinamically knowing type at run time
+				const std::type_info *type = &typeid(*message);
+
+				// store which type relates to which name
+				_messageNames[type] = itConstructor->first;
+				// create an entry
 				_messages[&typeid(*message)] = CMessageEntry();
+				// get a pointer to the ready instances for easier use
 				TMessageList *built = &_messages[&typeid(*message)].ready;
 
 				// not necessary anymore
