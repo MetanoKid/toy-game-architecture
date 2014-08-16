@@ -1,6 +1,8 @@
 #ifndef Application_Vector3_H
 #define Application_Vector3_H
 
+#include <sstream>
+
 namespace Application {
 
 	/**
@@ -43,6 +45,15 @@ namespace Application {
 		*/
 		~Vector3() {
 
+		}
+
+		/**
+		Extracts a Vector3 from a stream.
+		*/
+		friend std::istream &operator>>(std::istream &is, Vector3 &entry) {
+			is >> entry.x >> entry.y >> entry.z;
+
+			return is;
 		}
 
 	};

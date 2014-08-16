@@ -120,6 +120,12 @@
     <ClCompile Include="..\..\Src\Evolved\Config\Config.cpp">
       <Filter>Config\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Samples\Components\Light.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Evolved\Samples\Components\Perception.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h">
@@ -184,6 +190,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Config\Config.h">
       <Filter>Config\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Entity\EntityProperties.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Samples\Components\Light.h">
+      <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Evolved\Samples\Components\Perception.h">
+      <Filter>Samples\Components\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

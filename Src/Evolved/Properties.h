@@ -159,7 +159,7 @@ namespace Evolved {
 			std::getline(is, aux, '\n');
 
 			while(!aux.empty()) {
-				assert(aux.find('\t') == (entry._requiredTabs - 1) && "Incorrect number of tabs for a property.");
+				assert(aux.find_last_of('\t') == (entry._requiredTabs - 1) && "Incorrect number of tabs for a property.");
 
 				// reuse the string stream using the line we've read
 				iss.str(aux);

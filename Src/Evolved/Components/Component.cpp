@@ -1,4 +1,5 @@
 #include "Component.h"
+#include "Evolved/Entity/EntityProperties.h"
 #include "Evolved/Messages/Message.h"
 #include "Application/Macros.h"
 
@@ -17,7 +18,7 @@ namespace Evolved {
 		_messages.clear();
 	}
 
-	bool IComponent::spawn(const CProperties &data, CLevel *level) {
+	bool IComponent::spawn(const CEntityProperties &data, CLevel *level) {
 		// to be overriden by child classes
 		return true;
 	}

@@ -18,9 +18,9 @@ namespace Evolved {
 
 			}
 
-			bool CGraphics::spawn(const CProperties &data, CLevel *level) {
+			bool CGraphics::spawn(const CEntityProperties &data, CLevel *level) {
 				// try to get some data, which we take as mandatory
-				if(data.get<std::string>("model", _modelName)) {
+				if(data.get<std::string>(this, "model", _modelName)) {
 					// got a model name, so now tell the graphics engine to load it
 				} else {
 					return false;
@@ -55,7 +55,7 @@ namespace Evolved {
 
 			void CGraphics::deactivate() {
 				// perform operations when deactivating, if any
-				// example, remove the graphic entity from a graphic scene
+				// example: remove the graphic entity from a graphic scene
 			}
 
 			void CGraphics::tick(float secs) {

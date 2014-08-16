@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "Evolved/Properties.h"
+#include "EntityProperties.h"
 
 namespace Evolved {
 
@@ -42,7 +42,7 @@ namespace Evolved {
 		/**
 		Data defined in the level for this entity.
 		*/
-		CProperties data;
+		CEntityProperties data;
 	};
 }
 

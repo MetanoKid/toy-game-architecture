@@ -65,10 +65,10 @@ namespace Evolved {
 			// entity without properties, just structure (components)
 			// this is part of the two-step initialization: first structure then data
 			TEntityID entityID = CEntityID::nextID();
-			CEntityData entity(CEntityFactory::getInstance().build(entityID, levelEntry.type));
+			CEntityData entity(CEntityFactory::getInstance().build(entityID, levelEntry));
 			entity.name = levelEntry.name;
 			entity.type = levelEntry.type;
-			entity.data = levelEntry.properties;
+			entity.data.setData(levelEntry.componentData);
 
 			// store data for second step when adding to the level
 			level->addEntity(entityID, entity);

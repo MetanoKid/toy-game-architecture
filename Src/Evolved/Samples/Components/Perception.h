@@ -1,7 +1,8 @@
-#ifndef Evolved_Samples_Components_Graphics_H
-#define Evolved_Samples_Components_Graphics_H
+#ifndef Evolved_Samples_Components_Perception_H
+#define Evolved_Samples_Components_Perception_H
 
 #include "Evolved/Components/Component.h"
+#include "Application/Vector3.h"
 
 namespace Evolved {
 
@@ -10,44 +11,38 @@ namespace Evolved {
 		namespace Components {
 
 			/**
-			This class represents a graphic component, which is the one in charge of
-			dealing with the Graphics engine.
+			This class represents a perception component, which will communicate with the
+			AI engine to tell it which kind of perception this entity has.
 			For the sake of simplicity, it doesn't perform any action since there's
-			no actual Graphics engine.
+			no actual AI engine.
 			However, it has all of the features every component must use and also those
 			which might be used by some of them.
 			*/
-			class CGraphics : public IComponent {
-				DECLARE_COMPONENT(CGraphics);
+			class CPerception : public IComponent {
+				DECLARE_COMPONENT(CPerception);
 
 			private:
 				/**
-				The name of the model which represents this component.
-				Will be passed to the Graphics engine.
+				The perception type to be used.
 				*/
-				std::string _modelName;
+				std::string _type;
 
 			public:
 				/**
 				Default constructor, can't have any parameters because of our static
 				register into the ComponentFactory.
 				*/
-				CGraphics();
+				CPerception();
 
 				/**
 				Default destructor.
 				*/
-				~CGraphics();
+				~CPerception();
 
 				/**
 				Called as the second part of the two-step initialization.
 				*/
 				bool spawn(const CEntityProperties &data, CLevel *level);
-
-				/**
-				Processes a message in which this component is interested.
-				*/
-				void process(Evolved::Messages::CMessage *message);
 
 				/**
 				Activate this component.
@@ -63,15 +58,9 @@ namespace Evolved {
 				Perform per-frame behavior.
 				*/
 				void tick(float secs);
-
-				/**
-				Populates a message WishList in which this component is interested in.
-				Must be overriden by child components if they want to say what they accept.
-				*/
-				virtual void populateWishList(Evolved::Messages::CWishList &wishList) const;
 			};
 
-			REGISTER_COMPONENT(CGraphics);
+			REGISTER_COMPONENT(CPerception);
 		}
 
 	}

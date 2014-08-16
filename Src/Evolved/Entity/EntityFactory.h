@@ -4,20 +4,20 @@
 #include <map>
 #include <vector>
 
-#include "Blueprint.h"
 #include "EntityID.h"
 #include "EntityData.h"
+#include "Evolved/Level/LevelEntry.h"
 
 namespace Evolved {
 
 	/**
 	The task of creating and destroying entities is delegated to this factory.
-	Entities have two important concepts: they have a type and they have properties.
-	Types are defined as blueprints (which components compose the entity) and those
-	blueprints are defined in a file. The factory will process blueprints on initialization
-	and will use them when building entities.
-	Their properties are defined in a level file, which are processed and passed to
-	this factory to build those entities.
+	Entities have two important concepts: they have a name and they have components.
+	Components have some data associated to them so they can be configured so they perform
+	their behaviors. That data is in fact a set of properties defined in a level file,
+	which are processed and passed to this factory to build entities.
+	Before, we had blueprints, which defined which components formed an entity. Now,
+	blueprints don't exist and components are inferred from the level file.
 
 	It's implemented as a one-step initialization singleton, which is protected against
 	accidental or intentional copies.
@@ -28,17 +28,6 @@ namespace Evolved {
 		The current and unique instance of the singleton.
 		*/
 		static CEntityFactory *_instance;
-
-		/**
-		Alias for our blueprints map.
-		*/
-		typedef std::map<std::string, CBlueprint> TBlueprints;
-
-		/**
-		Every blueprint is stored in this map so we can access them quickly when building
-		an entity. It's cached when instantiating the factory.
-		*/
-		TBlueprints _blueprints;
 
 		/**
 		Basic constructor, private as a part of the singleton pattern.
@@ -86,7 +75,7 @@ namespace Evolved {
 		Creates an entity given a type. That will create the basic data, instantiate
 		components for that entity and set it up.
 		*/
-		CEntityData build(const TEntityID &id, const std::string &entityType) const;
+		CEntityData build(const TEntityID &id, const CLevelEntry &levelEntry) const;
 	};
 
 }

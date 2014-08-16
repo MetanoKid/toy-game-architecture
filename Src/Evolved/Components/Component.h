@@ -6,8 +6,8 @@
 
 #include "ComponentFactory.h"
 #include "Evolved/Entity/EntityID.h"
+#include "Evolved/Entity/EntityProperties.h"
 #include "Evolved/Messages/WishList.h"
-#include "Evolved/Properties.h"
 
 namespace Evolved {
 
@@ -69,7 +69,7 @@ namespace Evolved {
 		Initializes component's basic data, as the second part of  the component's
 		initialization.
 		*/
-		virtual bool spawn(const CProperties &data, CLevel *level);
+		virtual bool spawn(const CEntityProperties &data, CLevel *level);
 
 		/**
 		Activates the component.
@@ -114,6 +114,14 @@ namespace Evolved {
 		Must be overriden by child components if they want to say what they accept.
 		*/
 		virtual void populateWishList(Messages::CWishList &wishList) const;
+
+		/**
+		Gets the name of the component, which is the "stringification" of the class name.
+		It's used when the architecture spawns a component, so it can just access data
+		addressed to it, and not other components.
+		It's automatically implemented using mandatory-use component macros.
+		*/
+		virtual std::string getName() const = 0;
 	};
 
 	/**
@@ -137,7 +145,12 @@ public: \
 	/** \
 	Registers the component into the component factory. \
 	*/ \
-	static bool registerComponent();
+	static bool registerComponent(); \
+	\
+	/**
+	Defines mandatory method. \
+	*/ \
+	std::string getName() const;
 
 	/**
 	This macro defines some static methods that are part of every component, declared by
@@ -153,6 +166,10 @@ public: \
 		CComponentFactory::getInstance().add(#ComponentClass, ComponentClass::create); \
 		/* just return true always because we need to return something for REGISTER_COMPONENT macro to work correctly */ \
 		return true; \
+	} \
+	\
+	std::string ComponentClass::getName() const { \
+		return #ComponentClass; \
 	}
 
 	/**

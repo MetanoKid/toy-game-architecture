@@ -25,6 +25,8 @@
     <ClCompile Include="..\..\Src\Evolved\Messages\Pool.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Properties.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Samples\Components\Graphics.cpp" />
+    <ClCompile Include="..\..\Src\Evolved\Samples\Components\Light.cpp" />
+    <ClCompile Include="..\..\Src\Evolved\Samples\Components\Perception.cpp" />
     <ClCompile Include="..\..\Src\Evolved\Samples\Messages\SetPosition.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +38,7 @@
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityID.h" />
+    <ClInclude Include="..\..\Src\Evolved\Entity\EntityProperties.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\Level.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\LevelEntry.h" />
     <ClInclude Include="..\..\Src\Evolved\Level\LevelFactory.h" />
@@ -48,6 +51,8 @@
     <ClInclude Include="..\..\Src\Evolved\Messages\WishList.h" />
     <ClInclude Include="..\..\Src\Evolved\Properties.h" />
     <ClInclude Include="..\..\Src\Evolved\Samples\Components\Graphics.h" />
+    <ClInclude Include="..\..\Src\Evolved\Samples\Components\Light.h" />
+    <ClInclude Include="..\..\Src\Evolved\Samples\Components\Perception.h" />
     <ClInclude Include="..\..\Src\Evolved\Samples\Messages\SetPosition.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

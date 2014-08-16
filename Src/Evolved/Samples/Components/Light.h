@@ -1,7 +1,8 @@
-#ifndef Evolved_Samples_Components_Graphics_H
-#define Evolved_Samples_Components_Graphics_H
+#ifndef Evolved_Samples_Components_Light_H
+#define Evolved_Samples_Components_Light_H
 
 #include "Evolved/Components/Component.h"
+#include "Application/Vector3.h"
 
 namespace Evolved {
 
@@ -10,34 +11,38 @@ namespace Evolved {
 		namespace Components {
 
 			/**
-			This class represents a graphic component, which is the one in charge of
-			dealing with the Graphics engine.
+			This class represents a light component, which will communicate with the graphics
+			engine to tell it where to place a light.
 			For the sake of simplicity, it doesn't perform any action since there's
-			no actual Graphics engine.
+			no actual graphics engine.
 			However, it has all of the features every component must use and also those
 			which might be used by some of them.
 			*/
-			class CGraphics : public IComponent {
-				DECLARE_COMPONENT(CGraphics);
+			class CLight : public IComponent {
+				DECLARE_COMPONENT(CLight);
 
 			private:
 				/**
-				The name of the model which represents this component.
-				Will be passed to the Graphics engine.
+				The type of the light to be used.
 				*/
-				std::string _modelName;
+				std::string _type;
+
+				/**
+				The color for this light.
+				*/
+				Vector3 _color;
 
 			public:
 				/**
 				Default constructor, can't have any parameters because of our static
 				register into the ComponentFactory.
 				*/
-				CGraphics();
+				CLight();
 
 				/**
 				Default destructor.
 				*/
-				~CGraphics();
+				~CLight();
 
 				/**
 				Called as the second part of the two-step initialization.
@@ -71,7 +76,7 @@ namespace Evolved {
 				virtual void populateWishList(Evolved::Messages::CWishList &wishList) const;
 			};
 
-			REGISTER_COMPONENT(CGraphics);
+			REGISTER_COMPONENT(CLight);
 		}
 
 	}
