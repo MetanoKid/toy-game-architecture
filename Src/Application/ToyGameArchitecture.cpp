@@ -1,5 +1,6 @@
 #include "Classic/Application.h"
 #include "Evolved/Application.h"
+#include "EvolvedPlus/Application.h"
 
 /**
 Entry point of this architecture, to show its behavior and flow during the executions.
@@ -14,7 +15,7 @@ application.release() is important and can't be removed, or else leaks will appe
 @see Component.h, Message.h to get more info on this restriction.
 */
 int main(int argc, char **argv) {
-	// classic approach
+	// Classic approach
 	{
 		// build the application
 		Classic::CApplication &application = Classic::CApplication::getInstance();
@@ -28,10 +29,24 @@ int main(int argc, char **argv) {
 		application.release();
 	}
 
-	// evolved approach
+	// Evolved approach
 	{
 		// build the application
 		Evolved::CApplication &application = Evolved::CApplication::getInstance();
+
+		// initialize it and run if initialization was successful
+		if(application.initialize()) {
+			application.run();
+		}
+
+		// finally, destroy the application
+		application.release();
+	}
+
+	// EvolvedPlus approach
+	{
+		// build the application
+		EvolvedPlus::CApplication &application = EvolvedPlus::CApplication::getInstance();
 
 		// initialize it and run if initialization was successful
 		if(application.initialize()) {

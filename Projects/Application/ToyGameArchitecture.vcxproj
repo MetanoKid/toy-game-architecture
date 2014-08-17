@@ -91,6 +91,9 @@
     <ProjectReference Include="..\Classic\Classic version.vcxproj">
       <Project>{bea4ae23-63de-4e16-8408-b7d4f99a038f}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\EvolvedPlus\EvolvedPlus version.vcxproj">
+      <Project>{c1d5b560-b9a0-4ea7-b799-b02a84b30891}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\Evolved\Evolved version.vcxproj">
       <Project>{9e7e9685-541a-4e42-ae06-fad2ed301761}</Project>
     </ProjectReference>

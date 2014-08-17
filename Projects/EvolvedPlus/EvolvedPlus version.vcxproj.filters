@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Components">
+      <UniqueIdentifier>{5e2baea5-1bee-408b-bc83-d83de426f76c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity">
+      <UniqueIdentifier>{cddd11e3-c1ac-4c70-9182-7be597e6152c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{f06107e5-36dd-4d96-afa2-4268c4d1d4d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level">
+      <UniqueIdentifier>{82e68492-789e-4136-935c-b2bd8f732c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages">
+      <UniqueIdentifier>{ca43c034-9e06-4c2f-98c3-09e68072ce96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples">
+      <UniqueIdentifier>{aee6e9c8-58a8-4f2d-b019-c8c16b46886f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{898a7c02-eff3-475b-b92e-ba9af8f3fb54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Header Files">
+      <UniqueIdentifier>{9d485011-1ebc-436c-b2d3-bf86491ed559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components\Source Files">
+      <UniqueIdentifier>{9a60d77b-6dac-4e84-ba0b-ae4da3494e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Header Files">
+      <UniqueIdentifier>{dcf1d5d5-859e-48db-ac7e-fa4a1fa0fdf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entity\Source Files">
+      <UniqueIdentifier>{fb83b860-7cbc-413d-a8f7-e9ec1374b3d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Header Files">
+      <UniqueIdentifier>{b4857039-53b9-40a0-b42f-d822b6e19084}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Level\Source Files">
+      <UniqueIdentifier>{f9e18b33-4b4b-4659-848f-a4458cd8ceb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages\Source Files">
+      <UniqueIdentifier>{bfc5d02e-43f1-4ab4-8776-f80a8d57f2dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Messages\Header Files">
+      <UniqueIdentifier>{764ed1a1-2f57-4087-8c98-5513191b4793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components">
+      <UniqueIdentifier>{39b1ff0e-5a8c-47f8-889e-31361c32e414}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages">
+      <UniqueIdentifier>{0f7ecbcc-a205-48aa-abb1-db2813e26999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components\Header Files">
+      <UniqueIdentifier>{9e915cfd-2222-44f0-8e68-ac85aaf812dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Components\Source Files">
+      <UniqueIdentifier>{b5933444-a34d-400a-afe3-5d376304193e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages\Header Files">
+      <UniqueIdentifier>{ce146e0a-0465-45f7-80db-d859678b3461}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samples\Messages\Source Files">
+      <UniqueIdentifier>{4fe0aec0-25ca-407b-9ad3-7a3017539876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{887d6399-1523-4b2e-8825-19a1e5070e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Header Files">
+      <UniqueIdentifier>{df34237d-47da-4101-bbac-82c7cbd4c0af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Source Files">
+      <UniqueIdentifier>{f1d4d13c-93cc-4e39-a462-2c3e78a666d4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Components\Component.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Components\ComponentFactory.cpp">
+      <Filter>Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityID.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Level\Level.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Level\LevelFactory.cpp">
+      <Filter>Level\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\Message.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Graphics.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Messages\SetPosition.cpp">
+      <Filter>Samples\Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\MessageTopic.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\Pool.cpp">
+      <Filter>Messages\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Properties.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Config\Config.cpp">
+      <Filter>Config\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Light.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Perception.cpp">
+      <Filter>Samples\Components\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Components\Component.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Components\ComponentFactory.h">
+      <Filter>Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\Blueprint.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityID.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\Level.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\LevelEntry.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\LevelFactory.h">
+      <Filter>Level\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Message.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageType.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Graphics.h">
+      <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Messages\SetPosition.h">
+      <Filter>Samples\Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityData.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageTopic.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\WishList.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Pool.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageComparator.h">
+      <Filter>Messages\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Properties.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Config\Config.h">
+      <Filter>Config\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityProperties.h">
+      <Filter>Entity\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Light.h">
+      <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Perception.h">
+      <Filter>Samples\Components\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

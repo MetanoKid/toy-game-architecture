@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Application.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Components\Component.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Components\ComponentFactory.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Config\Config.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityID.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Level\Level.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Level\LevelFactory.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\Message.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\MessageTopic.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Messages\Pool.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Properties.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Graphics.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Light.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Perception.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Messages\SetPosition.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Src\EvolvedPlus\Application.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Components\Component.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Components\ComponentFactory.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Config\Config.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\Blueprint.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityData.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityID.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityProperties.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\Level.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\LevelEntry.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Level\LevelFactory.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Message.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageComparator.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageTopic.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageType.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Pool.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\WishList.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Properties.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Graphics.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Light.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Components\Perception.h" />
+    <ClInclude Include="..\..\Src\EvolvedPlus\Samples\Messages\SetPosition.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1D5B560-B9A0-4EA7-B799-B02A84B30891}</ProjectGuid>
+    <RootNamespace>Classic</RootNamespace>
+    <ProjectName>EvolvedPlus version</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>
+      </SDLCheck>
+      <AdditionalIncludeDirectories>../../Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>
+      </SDLCheck>
+      <AdditionalIncludeDirectories>../../Src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
