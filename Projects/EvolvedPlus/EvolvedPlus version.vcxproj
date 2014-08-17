@@ -34,7 +34,6 @@
     <ClInclude Include="..\..\Src\EvolvedPlus\Components\Component.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Components\ComponentFactory.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Config\Config.h" />
-    <ClInclude Include="..\..\Src\EvolvedPlus\Entity\Blueprint.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityData.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Entity\EntityID.h" />

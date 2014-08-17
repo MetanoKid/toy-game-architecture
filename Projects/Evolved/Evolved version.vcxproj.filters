@@ -134,9 +134,6 @@
     <ClInclude Include="..\..\Src\Evolved\Components\ComponentFactory.h">
       <Filter>Components\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Evolved\Entity\Blueprint.h">
-      <Filter>Entity\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h">
       <Filter>Entity\Header Files</Filter>
     </ClInclude>

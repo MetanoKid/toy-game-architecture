@@ -34,7 +34,6 @@
     <ClInclude Include="..\..\Src\Evolved\Components\Component.h" />
     <ClInclude Include="..\..\Src\Evolved\Components\ComponentFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Config\Config.h" />
-    <ClInclude Include="..\..\Src\Evolved\Entity\Blueprint.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityData.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityFactory.h" />
     <ClInclude Include="..\..\Src\Evolved\Entity\EntityID.h" />
