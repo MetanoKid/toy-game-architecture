@@ -11,22 +11,6 @@
 namespace EvolvedPlus {
 
 	/**
-	Every level entry contains a set of entries for each component in the entity.
-	This struct represents each one of the entries for components.
-	*/
-	struct CLevelComponentEntry {
-		/**
-		The name of the component.
-		*/
-		std::string name;
-
-		/**
-		The properties associated to this component.
-		*/
-		CProperties properties;
-	};
-
-	/**
 	Every level has several entries which describe entities and their data.
 	This struct represents one of those entries.
 	*/
