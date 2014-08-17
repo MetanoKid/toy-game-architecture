@@ -39,14 +39,14 @@ namespace EvolvedPlus {
 		Processes an entry in the level file into a data structure.
 		Every entry in the file has this structure:
 
-		<Entity name>
+		<Entity name> : <Entity type>
 			<Component name>
 				<Property name> <Property value>
 				<Property name> <Property value>
 
 		For example:
 
-		EntityName
+		EntityName : EntityType
 			Light
 				type Directional
 			Perception
