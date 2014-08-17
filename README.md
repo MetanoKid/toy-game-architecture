@@ -54,7 +54,7 @@ These formats are arbitrarily selected and used to prevent dependencies with ext
 
 ## Evolved game architecture
 
-Status: **In progress**
+Status: **Completed**
 
 The first approach has the basics of a component-based game architecture. However, there are some parts of it that could be improved. This approach will try to evolve that base and create a better game architecture.
 
@@ -70,7 +70,7 @@ Messages will be managed through an *object pool*, trying to minimize the possib
 Since we're aiming for a data-driven architecture, we'll also create a *Config file* to define some global properties which are interesting for parts of the architecture. An example of the *Config file* would be:
 
     blueprints blueprints.txt
-    level Level.txt
+    level Level_Evolved.txt
     messages MessagePool.txt
     controlled_delta_time 0.16
 
@@ -90,21 +90,39 @@ In this second approach we want to write this:
         Perception
             type Soldier
 
-Using this new way of defining levels we might argue that `blueprints` aren't necessary anymore and thus entity components can be inferred from level data.
+Using this new way of defining levels we might argue that `blueprints` aren't necessary anymore and thus entity components can be inferred from level data. So, `blueprints` will be gone and components will be built out of a level data.
 
-## Frankenstein game architecture
+## Evolved+ game architecture
 
-Status: **To be studied**
+Status: **In progress**
 
-After we've created the evolved version of the game architecture there are still some things to be explored:
+After creating the Evolved version of the game architecture, there are still some things to be explored further. We're developing those things in this last version of the toy game architecture.
 
-- The ability of creating entity `archetypes` so we could define *data-hierarchies*.
+First of all, we'll be adding the ability to define *data-hierarchies* when it comes to entities. It's a bit cumbersome having to define all of the data in the level every time, even when some of the entities are almost clones. To solve that, `archetypes` will provide a mechanism so we can do this:
 
-- One of the teachers at my Master's Degree once said: *There's no better message than a function call*. Within this approach, components will be able to access other components and won't be any messaging system to be used. Components may define a *dependency injection* section in their life cycle so they can receive references to those components. It creates coupling, but it's a nice feature to be explored.
+Level file:
 
-- In game development we should always try to minimize the amount of time that takes to perform empty operations. If none of the entities in the level were active, that should take zero time to perform a tick. The same goes for individual components: if we want to turn off every component in an entity, processing the tick for the components should take zero time.
+    EntityName : [ArchetypeName]
+        Physics
+            radius 2.1
 
-As the project evolves I might add or remove some of the features.
+Archetypes file:
+
+    ArchetypeName : EntityType
+        Graphics
+            model ModelFile.fbx
+        Physics
+            type capsule
+        Perception
+            type Soldier
+
+With this, we can even define *archetype-hierarchies*. When a component tries to access a property in its data, we'll first look for it in the data defined in the level file, then in each subsequent archetype until the end of the hierarchy.
+
+For the next feature I'll quote one of the teachers at my Master's Degree: *There's no better message than a function call*. Sending messages tends to introduce extra processing and, in our approach, one-frame delay between a message is emitted and it's processed. Although it has some nice features like avoiding immediate infinite loops, it has some bad ones like not being able to get a direct response from a message we've sent (asking for a position, the radius of a collider, ...).
+
+For this, we'll provide a mechanism so components can ask for a pointer to another component from any entity (if it exists), and then execute its functions right away. This introduces coupling, but it's a nice feature to be explored. Also, some commercial game engines provide both mechanisms (messaging and function calls).
+
+Last, but not least, the last feature in this toy game architecture. In game development we always strive to minimize the amount of time it takes to perform any operation (more importantly, empty ones). We've already seen how we've transformed our components so they aren't called at all if they don't want any message. This time we're introducing a way of enabling/disabling components individually. That way, we don't need to turn off an entity but just some of its components.
 
 ## Cloning and running
 
