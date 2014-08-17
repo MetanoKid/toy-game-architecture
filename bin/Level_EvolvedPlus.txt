@@ -1,0 +1,15 @@
+Entity 1 : Type A
+	CLight
+		type Directional
+		color 1 1 1
+	CPerception
+		type Enemy
+	CGraphics
+		model Model with a long name and some spaces.fbx
+		position 0 0 0
+
+Entity 2 : Type B
+	CGraphics
+		model Model.fbx
+	CPerception
+		type Type Alpha

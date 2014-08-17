@@ -53,7 +53,7 @@ namespace Evolved {
 		// perform application's initialization stuff, like loading a level
 		std::string fileName;
 
-		if(!CConfig::getInstance().get<std::string>("level", fileName)) {
+		if(!CConfig::getInstance().get<std::string>("level_evolved", fileName)) {
 			assert(false && "Couldn't find property level in the config file.");
 		}
 
