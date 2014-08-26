@@ -67,8 +67,16 @@ namespace EvolvedPlus {
 			TEntityID entityID = CEntityID::nextID();
 			CEntityData entity(CEntityFactory::getInstance().build(entityID, levelEntry));
 			entity.name = levelEntry.name;
-			entity.type = levelEntry.type;
-			entity.data.setData(levelEntry.componentData);
+			entity.data.setData(levelEntry);
+
+			// do we have an archetype name in the entry? Else, it must have a type.
+			if(!levelEntry.archetype.empty()) {
+				CEntityProperties *parent = CEntityFactory::getInstance().getArchetype(levelEntry.archetype);
+				entity.data.setParent(parent);
+				entity.type = parent->getType();
+			} else {
+				entity.type = levelEntry.type;
+			}
 
 			// store data for second step when adding to the level
 			level->addEntity(entityID, entity);

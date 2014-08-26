@@ -46,6 +46,7 @@ namespace EvolvedPlus {
 	CEntityFactory &CEntityFactory::getInstance() {
 		if(!_instance) {
 			_instance = new CEntityFactory();
+			_instance->parseArchetypes();
 		}
 
 		return *_instance;
@@ -65,6 +66,14 @@ namespace EvolvedPlus {
 
 		// and return it
 		return entity;
+	}
+
+	void CEntityFactory::parseArchetypes() {
+
+	}
+
+	CEntityProperties *CEntityFactory::getArchetype(const std::string &name) const {
+		return NULL;
 	}
 
 }

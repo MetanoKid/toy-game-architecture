@@ -5,6 +5,7 @@
 #include <sstream>
 #include <cassert>
 #include <map>
+#include <vector>
 
 #include "EvolvedPlus/Properties.h"
 
@@ -21,9 +22,14 @@ namespace EvolvedPlus {
 		std::string name;
 
 		/**
-		Type of the entity in the entry.
+		Type of the entity in the entry, if any.
 		*/
 		std::string type;
+
+		/**
+		Name of the archetype of this entry, if any.
+		*/
+		std::string archetype;
 
 		/**
 		Alias for the map to match components and data.

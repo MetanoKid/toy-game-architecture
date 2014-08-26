@@ -17,6 +17,7 @@
     <ClCompile Include="..\..\Src\EvolvedPlus\Config\Config.cpp" />
     <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityFactory.cpp" />
     <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityID.cpp" />
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityProperties.cpp" />
     <ClCompile Include="..\..\Src\EvolvedPlus\Level\Level.cpp" />
     <ClCompile Include="..\..\Src\EvolvedPlus\Level\LevelFactory.cpp" />
     <ClCompile Include="..\..\Src\EvolvedPlus\Messages\Message.cpp" />

@@ -126,6 +126,9 @@
     <ClCompile Include="..\..\Src\EvolvedPlus\Samples\Components\Perception.cpp">
       <Filter>Samples\Components\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\EvolvedPlus\Entity\EntityProperties.cpp">
+      <Filter>Entity\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\EvolvedPlus\Components\Component.h">

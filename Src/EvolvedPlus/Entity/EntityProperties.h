@@ -20,41 +20,53 @@ namespace EvolvedPlus {
 		/**
 		Data related to an entity.
 		*/
-		CLevelEntry::TComponentData _data;
+		CLevelEntry _data;
+
+		/**
+		Parent archetype, if any.
+		*/
+		CEntityProperties *_parent;
 
 	public:
 		/**
 		Default constructor.
 		*/
-		CEntityProperties() {
-
-		}
+		CEntityProperties();
 
 		/**
 		Basic destructor.
 		*/
-		~CEntityProperties() {
+		~CEntityProperties();
 
-		}
+		/**
+		Sets the LevelEntry data for this entity.
+		*/
+		void setData(CLevelEntry data);
 
-		void setData(CLevelEntry::TComponentData data) {
-			_data = data;
-		}
+		/**
+		Sets the parent archetype.
+		*/
+		void setParent(CEntityProperties *parent);
 
 		/**
 		Gets a property for a given component, if it exists.
 		*/
 		template <typename T>
 		bool get(IComponent *component, const std::string &propertyName, T &outValue) const {
-			CLevelEntry::TComponentData::const_iterator it = _data.find(component->getName());
+			CLevelEntry::TComponentData::const_iterator it = _data.componentData.find(component->getName());
 
-			if(it == _data.end()) {
+			if(it == _data.componentData.end()) {
 				return false;
 			}
 
-			const CProperties *properties = &it->second;
-			return it->second.get<T>(propertyName, outValue);
+			return it->second.get<T>(propertyName, outValue) ||
+			       (_parent && _parent->get<T>(component, propertyName, outValue));
 		}
+
+		/**
+		Gets the type of the entity for these properties.
+		*/
+		const std::string &getType() const;
 	};
 
 }

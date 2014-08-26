@@ -6,6 +6,7 @@
 
 #include "EntityID.h"
 #include "EntityData.h"
+#include "EntityProperties.h"
 #include "EvolvedPlus/Level/LevelEntry.h"
 
 namespace EvolvedPlus {
@@ -18,6 +19,11 @@ namespace EvolvedPlus {
 	which are processed and passed to this factory to build entities.
 	Before, we had blueprints, which defined which components formed an entity. Now,
 	blueprints don't exist and components are inferred from the level file.
+
+	The EntityFactory has one more task: parse archetypes and create a hierarchy of their
+	relationships. It's done on initialization and is kept during its life cycle.
+	Whenever a level is built, entries might have references to these archetypes and the
+	factory will be asked to provide references to those archetypes.
 
 	It's implemented as a one-step initialization singleton, which is protected against
 	accidental or intentional copies.
@@ -52,6 +58,21 @@ namespace EvolvedPlus {
 		*/
 		CEntityFactory &operator=(const CEntityFactory &factory);
 
+		/**
+		Alias to store archetypes.
+		*/
+		typedef std::map<std::string, CEntityProperties> TArchetypes;
+
+		/**
+		Archetypes indexed by name.
+		*/
+		TArchetypes _archetypes;
+
+		/**
+		Parses archetype file and builds up the archetypes map.
+		*/
+		void parseArchetypes();
+
 	public:
 		/**
 		When the singleton won't be used anymore, we can call this method to destroy the
@@ -76,6 +97,11 @@ namespace EvolvedPlus {
 		components for that entity and set it up.
 		*/
 		CEntityData build(const TEntityID &id, const CLevelEntry &levelEntry) const;
+
+		/**
+		Obtains a pointer to a data archetype, if it exists.
+		*/
+		CEntityProperties *getArchetype(const std::string &name) const;
 	};
 
 }
