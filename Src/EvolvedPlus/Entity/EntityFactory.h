@@ -101,7 +101,7 @@ namespace EvolvedPlus {
 		/**
 		Obtains a pointer to a data archetype, if it exists.
 		*/
-		CEntityProperties *getArchetype(const std::string &name) const;
+		CEntityProperties *getArchetype(const std::string &name);
 	};
 
 }

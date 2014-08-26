@@ -50,9 +50,24 @@ namespace EvolvedPlus {
 				<Property name> <Property value>
 				<Property name> <Property value>
 
+		Or this structure:
+
+		<Entity name> : [<Entity archetype>]
+			<Component name>
+				<Property name> <Property value>
+				<Property name> <Property value>
+
 		For example:
 
 		EntityName : EntityType
+			Light
+				type Directional
+			Perception
+				type Soldier
+
+		Or:
+
+		EntityName : [ArchetypeName]
 			Light
 				type Directional
 			Perception
@@ -67,7 +82,7 @@ namespace EvolvedPlus {
 			// create a stream to process the line
 			std::istringstream iss(aux);
 
-			// this first entry line is "<Entity name> : <Entity type>"
+			// this first entry line is "<Entity name> : <Entity type>" or "<Entity name> : [<Archetype>]"
 			std::string item;
 			std::vector<std::string> items;
 
@@ -78,11 +93,11 @@ namespace EvolvedPlus {
 			}
 
 			// ensure we've got exactly what we expect
-			assert(items.size() == 2 && "Level entry header (name : type) incorrect.");
+			assert(items.size() == 2 && "Level entry header incorrect.");
 
 			// and set them
 			entry.name = trim(items[0]);
-			entry.type = trim(items[1]);
+			entry.extractTypeArchetypeFrom(items[1]);
 
 			// start processing component data
 			std::string componentName;
@@ -147,6 +162,29 @@ namespace EvolvedPlus {
 			entry.componentData[componentName] = properties;
 
 			return is;
+		}
+
+	private:
+		void extractTypeArchetypeFrom(const std::string &data) {
+			int openingBracketPos = data.find_first_of('[');
+			int closingBracketPos = data.find_first_of(']');
+
+			// is it the type?
+			if(openingBracketPos == -1 && closingBracketPos == -1) {
+				type = trim(data);
+				return;
+			}
+
+			// it's the archetype
+			assert(openingBracketPos != -1 && closingBracketPos != -1 &&
+			       "Archetype name must be enclosed between '[' and ']'.");
+			assert(openingBracketPos < closingBracketPos && "Archetype name must be enclosed between '[' and ']'.");
+			assert(std::count(data.begin(), data.end(), '[') == 1 &&
+			       std::count(data.begin(), data.end(), ']') == 1 &&
+			       "Archetype name can't have '[' or ']' in its name.");
+
+			openingBracketPos++;
+			archetype = trim(data.substr(openingBracketPos, closingBracketPos - openingBracketPos));
 		}
 	};
 

@@ -1,4 +1,4 @@
-Entity 1 : Type A
+Archetype 1 : Entity type A
 	CLight
 		type Directional
 		color 1 1 1
@@ -8,8 +8,8 @@ Entity 1 : Type A
 		model Model with a long name and some spaces.fbx
 		position 0 0 0
 
-Entity 2 : [Archetype 2]
+Archetype 2 : Entity type B
 	CGraphics
-		wat watete
+		model Model.fbx
 	CPerception
 		type Type Alpha

@@ -16,6 +16,8 @@ namespace EvolvedPlus {
 	entry point to obtain properties for components separatedly.
 	*/
 	class CEntityProperties {
+		friend class CEntityFactory;
+
 	private:
 		/**
 		Data related to an entity.
