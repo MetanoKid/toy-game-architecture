@@ -1,6 +1,7 @@
 #ifndef EvolvedPlus_EntityProperties_H
 #define EvolvedPlus_EntityProperties_H
 
+#include <set>
 #include "EvolvedPlus/Level/LevelEntry.h"
 
 namespace EvolvedPlus {
@@ -57,18 +58,38 @@ namespace EvolvedPlus {
 		bool get(IComponent *component, const std::string &propertyName, T &outValue) const {
 			CLevelEntry::TComponentData::const_iterator it = _data.componentData.find(component->getName());
 
+			// do we have the component it's been asked for?
 			if(it == _data.componentData.end()) {
-				return false;
+				return _parent && _parent->get<T>(component, propertyName, outValue);
 			}
 
-			return it->second.get<T>(propertyName, outValue) ||
-			       (_parent && _parent->get<T>(component, propertyName, outValue));
+			// we've got the component and some of its data, do we have the data that's been asked for?
+			if(it->second.get<T>(propertyName, outValue)) {
+				return true;
+			}
+
+			// we've got the component and the data, but the data that's been asked for might be in the parent
+			if(_parent) {
+				return _parent->get<T>(component, propertyName, outValue);
+			}
+
+			return NULL;
 		}
 
 		/**
 		Gets the type of the entity for these properties.
 		*/
 		const std::string &getType() const;
+
+		/**
+		Alias for a set of unique component names.
+		*/
+		typedef std::set<std::string> TComponentNames;
+
+		/**
+		Gets the name of the components for this entry, even walking through parents if necessary.
+		*/
+		TComponentNames getComponentNames() const;
 	};
 
 }

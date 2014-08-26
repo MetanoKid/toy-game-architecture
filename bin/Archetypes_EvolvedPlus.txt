@@ -1,15 +1,17 @@
-Archetype 1 : Entity type A
-	CLight
-		type Directional
-		color 1 1 1
+Archetype 1 : [GraphicalLight]
 	CPerception
 		type Enemy
-	CGraphics
-		model Model with a long name and some spaces.fbx
-		position 0 0 0
 
 Archetype 2 : Entity type B
 	CGraphics
 		model Model.fbx
 	CPerception
 		type Type Alpha
+
+GraphicalLight : Entity type
+	CLight
+		type Directional
+		color 1 1 1
+	CGraphics
+		model Model with a long name and some spaces.fbx
+		position 0 0 0

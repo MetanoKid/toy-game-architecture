@@ -1,5 +1,7 @@
 #include "Perception.h"
 
+#include "EvolvedPlus/Entity/EntityID.h"
+
 namespace EvolvedPlus {
 
 	namespace Samples {

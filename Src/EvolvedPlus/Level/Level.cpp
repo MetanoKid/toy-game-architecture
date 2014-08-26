@@ -26,11 +26,11 @@ namespace EvolvedPlus {
 
 		// iterate over entities
 		FOR_IT_CONST(TEntities, itEntity, _entities) {
-			const CEntityData &data = itEntity->second;
+			const CEntityData *data = &itEntity->second;
 
 			// iterate over entity components and spawn them
-			FOR_IT_CONST(TComponents, itComponent, data.components) {
-				if(!(*itComponent)->spawn(itEntity->second.data, this)) {
+			FOR_IT_CONST(TComponents, itComponent, data->components) {
+				if(!(*itComponent)->spawn(data->data, this)) {
 					assert(false && "An entity couldn't be spawned correctly.");
 					return false;
 				}

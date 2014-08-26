@@ -96,7 +96,7 @@ namespace EvolvedPlus {
 		Creates an entity given a type. That will create the basic data, instantiate
 		components for that entity and set it up.
 		*/
-		CEntityData build(const TEntityID &id, const CLevelEntry &levelEntry) const;
+		CEntityData build(const TEntityID &id, const CEntityProperties &properties) const;
 
 		/**
 		Obtains a pointer to a data archetype, if it exists.

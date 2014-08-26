@@ -52,13 +52,14 @@ namespace EvolvedPlus {
 		return *_instance;
 	}
 
-	CEntityData CEntityFactory::build(const TEntityID &id, const CLevelEntry &levelEntry) const {
+	CEntityData CEntityFactory::build(const TEntityID &id, const CEntityProperties &properties) const {
 		// create the entity data, which won't have any component or anything yet
 		CEntityData entity;
 
 		// build its components
-		FOR_IT_CONST(CLevelEntry::TComponentData, it, levelEntry.componentData) {
-			IComponent *component = CComponentFactory::getInstance().build(it->first);
+		CEntityProperties::TComponentNames componentNames = properties.getComponentNames();
+		FOR_IT_CONST(CEntityProperties::TComponentNames, it, componentNames) {
+			IComponent *component = CComponentFactory::getInstance().build(*it);
 			entity.components.push_back(component);
 
 			component->setEntity(id);
