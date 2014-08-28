@@ -9,3 +9,5 @@ Entity 2 : Type B
 		model Model.fbx
 	CPerception
 		type Type Alpha
+
+Entity 3 : [GraphicalLight]

@@ -105,6 +105,14 @@ namespace EvolvedPlus {
 			std::string propertyValue;
 			CProperties properties;
 			bool parsingComponentName = true;
+
+			// address the scenario in which the last item in a level file has no components defined
+			// instead, it just has its archetype (or even type, but it could be an useless entity)
+			if(is.eof()) {
+				return is;
+			}
+
+			// start parsing components
 			std::getline(is, aux, '\n');
 
 			while(!aux.empty()) {
@@ -159,7 +167,10 @@ namespace EvolvedPlus {
 				std::getline(is, aux, '\n');
 			}
 
-			entry.componentData[componentName] = properties;
+			// insert data which we were building, in case there's any
+			if(!componentName.empty()) {
+				entry.componentData[componentName] = properties;
+			}
 
 			return is;
 		}
