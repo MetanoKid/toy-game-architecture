@@ -60,8 +60,8 @@ namespace EvolvedPlus {
 				// tell the Graphics engine any per-tick information that may be needed
 			}
 
-			void CLight::setColor(const Vector3 &color) {
-				// tell the Graphics engine to change light's color
+			const Vector3 &CLight::getColor() const {
+				return _color;
 			}
 
 		}

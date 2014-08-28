@@ -36,7 +36,9 @@ namespace EvolvedPlus {
 
 				// try to call one of its methods
 				if(_lightComponent) {
-					_lightComponent->setColor(Vector3(1.0f, 0.0f, 0.0f));
+					Vector3 color = _lightComponent->getColor();
+					// do something with this color, like using another shader or whatever comes up
+					// to our minds
 				}
 
 				return true;

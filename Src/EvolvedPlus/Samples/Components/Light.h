@@ -79,7 +79,7 @@ namespace EvolvedPlus {
 				This method is just a mock-up to test we can call it from another component,
 				given that component has got a reference to this one.
 				*/
-				void setColor(const Vector3 &color);
+				const Vector3 &getColor() const;
 			};
 
 			REGISTER_COMPONENT(CLight);
