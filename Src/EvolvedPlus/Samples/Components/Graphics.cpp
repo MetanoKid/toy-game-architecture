@@ -1,5 +1,8 @@
 #include "Graphics.h"
 
+#include "EvolvedPlus/Level/Level.h"
+
+#include "Light.h"
 #include "EvolvedPlus/Samples/Messages/SetPosition.h"
 
 namespace EvolvedPlus {
@@ -10,7 +13,7 @@ namespace EvolvedPlus {
 
 			IMPLEMENT_COMPONENT(CGraphics);
 
-			CGraphics::CGraphics() : IComponent(), _modelName("") {
+			CGraphics::CGraphics() : IComponent(), _modelName(""), _lightComponent(NULL) {
 
 			}
 
@@ -27,6 +30,14 @@ namespace EvolvedPlus {
 				}
 
 				// perform extra operations like creating a graphic entity, and keeping a reference
+
+				// try to get the light component
+				_lightComponent = level->getComponent<CLight>(_entity);
+
+				// try to call one of its methods
+				if(_lightComponent) {
+					_lightComponent->setColor(Vector3(1.0f, 0.0f, 0.0f));
+				}
 
 				return true;
 			}

@@ -10,6 +10,13 @@ namespace EvolvedPlus {
 		namespace Components {
 
 			/**
+			Forward declarations.
+
+			@see CGraphics private member
+			*/
+			class CLight;
+
+			/**
 			This class represents a graphic component, which is the one in charge of
 			dealing with the Graphics engine.
 			For the sake of simplicity, it doesn't perform any action since there's
@@ -26,6 +33,14 @@ namespace EvolvedPlus {
 				Will be passed to the Graphics engine.
 				*/
 				std::string _modelName;
+
+				/**
+				To test we can get a reference to another component, we'll store the
+				pointer to a light component in the entity this component is.
+				It includes coupling between these classes, but it's just something
+				to test out.
+				*/
+				CLight *_lightComponent;
 
 			public:
 				/**

@@ -6,6 +6,7 @@
 
 #include "EvolvedPlus/Entity/EntityID.h"
 #include "EvolvedPlus/Entity/EntityData.h"
+#include "Application/Macros.h"
 
 namespace EvolvedPlus {
 
@@ -174,6 +175,34 @@ namespace EvolvedPlus {
 		every entity which is part of that queue.
 		*/
 		void deferDeleteEntity(const TEntityID &entity);
+
+		/**
+		Gets a pointer to a component from an entity given the components type.
+		It looks for a component of the given type, which might be O(n) in the worst case,
+		where n is the number of components in the entity.
+		A nicer way of doing that would be to store components indexed by type.
+		*/
+		template <typename T>
+		T *getComponent(const TEntityID &entity) {
+			TEntities::const_iterator it = _entities.find(entity);
+
+			if(it == _entities.end()) {
+				return NULL;
+			}
+
+			const std::type_info &type = typeid(T);
+
+			FOR_IT_CONST(TComponents, itComponent, it->second.components) {
+				IComponent *component = *itComponent;
+
+				// remember: dynamic type lookup during run-time dereferencing the pointer
+				if(typeid(*component) == type) {
+					return static_cast<T *>(component);
+				}
+			}
+
+			return NULL;
+		}
 	};
 
 }

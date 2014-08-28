@@ -74,6 +74,12 @@ namespace EvolvedPlus {
 				Must be overriden by child components if they want to say what they accept.
 				*/
 				virtual void populateWishList(EvolvedPlus::Messages::CWishList &wishList) const;
+
+				/**
+				This method is just a mock-up to test we can call it from another component,
+				given that component has got a reference to this one.
+				*/
+				void setColor(const Vector3 &color);
 			};
 
 			REGISTER_COMPONENT(CLight);
