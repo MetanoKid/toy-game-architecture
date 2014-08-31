@@ -242,4 +242,57 @@ namespace EvolvedPlus {
 		}
 	}
 
+	void CLevel::setComponentActive(IComponent *component, bool active) {
+		// just in case, overprotect if necessary
+		if(component == NULL) {
+			return;
+		}
+
+		// does that component exist in this level? (does its entity exist?)
+		TEntities::iterator itEntity = _entities.find(component->getEntity());
+
+		if(itEntity == _entities.end()) {
+			return;
+		}
+
+		std::vector<IComponent *> *components = &itEntity->second.components;
+		std::vector<IComponent *> *disabledComponents = &itEntity->second.disabledComponents;
+
+		if(!active) {
+			// the component is supposed to be active and we want to deactivate it
+			// so, first find the component in the active component list
+			std::vector<IComponent *>::const_iterator itComponent = std::find(components->begin(),
+			                                                                  components->end(),
+			                                                                  component);
+
+			// if it was really active, then disable it and move some pointers
+			if(itComponent != components->end()) {
+				components->erase(itComponent);
+
+				component->deactivate();
+				_messageTopic->unsuscribe(component);
+
+				disabledComponents->push_back(component);
+			}
+		} else {
+			// the component is supposed to be deactivated and we want to activate it
+			// so, first find the component in the disabled component list
+			std::vector<IComponent *>::const_iterator itComponent = std::find(disabledComponents->begin(),
+			                                                                  disabledComponents->end(),
+			                                                                  component);
+
+			// if it was really disabled, then enable it and move some pointers
+			if(itComponent != disabledComponents->end()) {
+				disabledComponents->erase(itComponent);
+
+				Messages::CWishList wishList;
+				component->populateWishList(wishList);
+				_messageTopic->suscribe(component, wishList);
+				component->activate();
+
+				components->push_back(component);
+			}
+		}
+	}
+
 }

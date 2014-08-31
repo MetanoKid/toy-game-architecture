@@ -74,6 +74,11 @@ namespace EvolvedPlus {
 			void suscribe(IComponent *component, const CWishList &interestList);
 
 			/**
+			Unsuscribes a component from any existent suscriptions.
+			*/
+			void unsuscribe(IComponent *component);
+
+			/**
 			Unsuscribes an entity and thus all of its components.
 			*/
 			void unsuscribe(const TEntityID &entity);

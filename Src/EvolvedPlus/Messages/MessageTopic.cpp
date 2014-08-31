@@ -56,6 +56,10 @@ namespace EvolvedPlus {
 			}
 		}
 
+		void CMessageTopic::unsuscribe(IComponent *component) {
+			// TODO: find every suscription and remove it
+		}
+
 		void CMessageTopic::unsuscribe(const TEntityID &entity) {
 			TEntitySuscriptions::const_iterator itEntity = _suscriptions.find(entity);
 

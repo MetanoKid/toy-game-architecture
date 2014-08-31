@@ -40,6 +40,11 @@ namespace EvolvedPlus {
 		std::vector<IComponent *> components;
 
 		/**
+		Inactive components for this entity.
+		*/
+		std::vector<IComponent *> disabledComponents;
+
+		/**
 		Data defined in the level for this entity.
 		*/
 		CEntityProperties data;

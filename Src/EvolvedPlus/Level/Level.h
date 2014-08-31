@@ -203,6 +203,14 @@ namespace EvolvedPlus {
 
 			return NULL;
 		}
+
+		/**
+		Activates or deactivates a component from an entity in this level.
+		When it's deactivated it's also unregistered from any message it was interested in.
+		When it's activated it will be registered again.
+		*/
+		void setComponentActive(IComponent *component, bool active);
+
 	};
 
 }
