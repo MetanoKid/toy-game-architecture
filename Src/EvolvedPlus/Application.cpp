@@ -9,6 +9,7 @@
 
 // these next includes exist because of our sample test
 #include "Samples/Messages/SetPosition.h"
+#include "Samples/Components/Graphics.h"
 
 namespace EvolvedPlus {
 
@@ -105,17 +106,40 @@ namespace EvolvedPlus {
 			*/
 			TEntityID entity = CEntityID::FIRST_ID;
 
+			// -------------------------------------------------------
+
 			// first tick (it does nothing)
 			_currentLevel->tick(deltaTime);
 
-			// send a message
+			// -------------------------------------------------------
+
+			// disable a component
+			IComponent *component = _currentLevel->getComponent<Samples::Components::CGraphics>(entity);
+			_currentLevel->setComponentActive(component, false);
+
+			// send a message (it won't be received by the previous component)
 			Messages::CPool &pool = Messages::CPool::getInstance();
 			Samples::Messages::CSetPosition *message = pool.obtainMessage<Samples::Messages::CSetPosition>();
 			message->init(Vector3(1.0f, 0.0f, 0.0f));
 			_currentLevel->sendMessage(entity, message);
 
-			// second tick (message is processed)
+			// second tick (nothing will happen and previous message is already gone)
 			_currentLevel->tick(deltaTime);
+
+			// -------------------------------------------------------
+
+			// enable the component again
+			_currentLevel->setComponentActive(component, true);
+
+			// send a message (will be processed during next tick)
+			message = pool.obtainMessage<Samples::Messages::CSetPosition>();
+			message->init(Vector3(1.0f, 0.0f, 0.0f));
+			_currentLevel->sendMessage(entity, message);
+
+			// third tick (this last message will be processed)
+			_currentLevel->tick(deltaTime);
+
+			// -------------------------------------------------------
 		}
 
 		// deactivate it, as part of its life cycle

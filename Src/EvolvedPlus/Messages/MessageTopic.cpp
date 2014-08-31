@@ -57,7 +57,38 @@ namespace EvolvedPlus {
 		}
 
 		void CMessageTopic::unsuscribe(IComponent *component) {
-			// TODO: find every suscription and remove it
+			assert(component != NULL && "Can't unsuscribe a null component.");
+
+			TEntitySuscriptions::iterator itEntity = _suscriptions.find(component->getEntity());
+
+			if(itEntity == _suscriptions.end()) {
+				return;
+			}
+
+			// get the messages this component was interested in, which are the only ones in which it
+			// might still be
+			CWishList wishList;
+			component->populateWishList(wishList);
+
+			// for each message this component was interested in, find and remove the suscription
+			FOR_IT_CONST(CWishList::TWishList, itWishList, wishList._interests) {
+				// does the message exist in the topic?
+				TSuscriptions::iterator itMessage = itEntity->second.find(*itWishList);
+
+				if(itMessage == itEntity->second.end()) {
+					continue;
+				}
+
+				// find the suscription of the component for this message
+				TComponents::const_iterator itComponent = std::find(itMessage->second.begin(),
+				                                                    itMessage->second.end(),
+				                                                    component);
+
+				if(itComponent != itMessage->second.end()) {
+					// the component had an active suscription, so remove it right away
+					itMessage->second.erase(itComponent);
+				}
+			}
 		}
 
 		void CMessageTopic::unsuscribe(const TEntityID &entity) {

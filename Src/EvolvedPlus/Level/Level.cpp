@@ -182,6 +182,11 @@ namespace EvolvedPlus {
 			FOR_IT_CONST(TComponents, itComponent, data.components) {
 				delete *itComponent;
 			}
+
+			// remember to do the same for disabled components
+			FOR_IT_CONST(TComponents, itComponent, data.disabledComponents) {
+				delete *itComponent;
+			}
 		}
 
 		_entities.clear();
