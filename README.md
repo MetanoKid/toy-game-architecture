@@ -1,5 +1,7 @@
 # Toy Game Architectures
 
+Status: **Completed (but always trying to improve)**
+
 Videogames are one of the most beautiful and engaging kinds of software in the world. Not only they are fun to be played but they are fun to be developed.
 
 Like every other software project, videogames divide their complexity into several subsystems to implement different functionalities. To name a few, these subsystems include *graphics*, *user input*, *audio*, *physics*, *net*, *GUI*, *AI*, *scripting* and *game-specific logic*. If these subsystems are the limbs of the videogame, we're still missing the body to connect them altogether. We could, arguably, call that the *logic*.
@@ -94,7 +96,7 @@ Using this new way of defining levels we might argue that `blueprints` aren't ne
 
 ## Evolved+ game architecture
 
-Status: **In progress**
+Status: **Completed**
 
 After creating the Evolved version of the game architecture, there are still some things to be explored further. We're developing those things in this last version of the toy game architecture.
 
