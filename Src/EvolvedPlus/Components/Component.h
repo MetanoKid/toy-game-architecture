@@ -41,6 +41,11 @@ namespace EvolvedPlus {
 		*/
 		TMessages _messages;
 
+		/**
+		Component's name, as a stringification of the class name.
+		*/
+		std::string _name;
+
 	protected:
 		/**
 		The entity this component is associated to.
@@ -55,8 +60,7 @@ namespace EvolvedPlus {
 
 	public:
 		/**
-		Base constructor, takes the entity to which the component is associated.
-		Represents the first part of component's instantiation.
+		Base constructor. Represents the first part of component's instantiation.
 		*/
 		IComponent();
 
@@ -119,9 +123,16 @@ namespace EvolvedPlus {
 		Gets the name of the component, which is the "stringification" of the class name.
 		It's used when the architecture spawns a component, so it can just access data
 		addressed to it, and not other components.
-		It's automatically implemented using mandatory-use component macros.
+		The name is automatically set when instantiating components.
 		*/
-		virtual std::string getName() const = 0;
+		const std::string &getName() const;
+
+		/**
+		Sets the name of the component, automatically done via macros.
+		It's a setter instead of making components' constructors have a mandatory parameter,
+		so it's more automatic and user-defined components don't have to add more stuff.
+		*/
+		void setName(const std::string &name);
 	};
 
 	/**
@@ -145,12 +156,7 @@ public: \
 	/** \
 	Registers the component into the component factory. \
 	*/ \
-	static bool registerComponent(); \
-	\
-	/**
-	Defines mandatory method. \
-	*/ \
-	std::string getName() const;
+	static bool registerComponent();
 
 	/**
 	This macro defines some static methods that are part of every component, declared by
@@ -159,17 +165,15 @@ public: \
 	*/
 #define IMPLEMENT_COMPONENT(ComponentClass) \
 	IComponent *ComponentClass::create() { \
-		return new ComponentClass(); \
+		IComponent *component = new ComponentClass(); \
+		component->setName(#ComponentClass); \
+		return component; \
 	} \
 	\
 	bool ComponentClass::registerComponent() { \
 		CComponentFactory::getInstance().add(#ComponentClass, ComponentClass::create); \
 		/* just return true always because we need to return something for REGISTER_COMPONENT macro to work correctly */ \
 		return true; \
-	} \
-	\
-	std::string ComponentClass::getName() const { \
-		return #ComponentClass; \
 	}
 
 	/**

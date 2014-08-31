@@ -73,4 +73,12 @@ namespace EvolvedPlus {
 		_messages.push_back(message);
 	}
 
+	const std::string &IComponent::getName() const {
+		return _name;
+	}
+
+	void IComponent::setName(const std::string &name) {
+		_name = name;
+	}
+
 }
