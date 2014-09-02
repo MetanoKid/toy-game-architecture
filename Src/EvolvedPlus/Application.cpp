@@ -123,7 +123,7 @@ namespace EvolvedPlus {
 			message->init(Vector3(1.0f, 0.0f, 0.0f));
 			_currentLevel->sendMessage(entity, message);
 
-			// second tick (nothing will happen and previous message is already gone)
+			// second tick (previous message is only processed by active components, and is gone for previous component)
 			_currentLevel->tick(deltaTime);
 
 			// -------------------------------------------------------
@@ -136,7 +136,7 @@ namespace EvolvedPlus {
 			message->init(Vector3(1.0f, 0.0f, 0.0f));
 			_currentLevel->sendMessage(entity, message);
 
-			// third tick (this last message will be processed)
+			// third tick (this last message will be processed by all components, including previous one)
 			_currentLevel->tick(deltaTime);
 
 			// -------------------------------------------------------

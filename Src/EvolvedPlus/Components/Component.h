@@ -120,19 +120,10 @@ namespace EvolvedPlus {
 		virtual void populateWishList(Messages::CWishList &wishList) const;
 
 		/**
-		Gets the name of the component, which is the "stringification" of the class name.
-		It's used when the architecture spawns a component, so it can just access data
-		addressed to it, and not other components.
-		The name is automatically set when instantiating components.
+		Gets the name of this component as a stringyfication of the class name.
+		It's the same string for all instances of the same class.
 		*/
-		const std::string &getName() const;
-
-		/**
-		Sets the name of the component, automatically done via macros.
-		It's a setter instead of making components' constructors have a mandatory parameter,
-		so it's more automatic and user-defined components don't have to add more stuff.
-		*/
-		void setName(const std::string &name);
+		virtual const std::string &getName() const = 0;
 	};
 
 	/**
@@ -156,7 +147,17 @@ public: \
 	/** \
 	Registers the component into the component factory. \
 	*/ \
-	static bool registerComponent();
+	static bool registerComponent(); \
+	\
+	/** \
+	The name of this component, used when delivering messages. \
+	*/ \
+	static std::string componentName; \
+	\
+	/** \
+	Overrides parent's getName(). \
+	*/ \
+	const std::string &getName() const;
 
 	/**
 	This macro defines some static methods that are part of every component, declared by
@@ -165,15 +166,19 @@ public: \
 	*/
 #define IMPLEMENT_COMPONENT(ComponentClass) \
 	IComponent *ComponentClass::create() { \
-		IComponent *component = new ComponentClass(); \
-		component->setName(#ComponentClass); \
-		return component; \
+		return new ComponentClass(); \
 	} \
 	\
 	bool ComponentClass::registerComponent() { \
 		CComponentFactory::getInstance().add(#ComponentClass, ComponentClass::create); \
 		/* just return true always because we need to return something for REGISTER_COMPONENT macro to work correctly */ \
 		return true; \
+	} \
+	\
+	std::string ComponentClass::componentName = #ComponentClass; \
+	\
+	const std::string &ComponentClass::getName() const { \
+		return ComponentClass::componentName; \
 	}
 
 	/**
