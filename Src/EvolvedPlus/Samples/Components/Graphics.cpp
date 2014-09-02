@@ -50,13 +50,8 @@ namespace EvolvedPlus {
 			}
 
 			void CGraphics::process(EvolvedPlus::Messages::CMessage *message) {
-				switch(message->getType()) {
-					case EvolvedPlus::Messages::SET_POSITION: {
-							Messages::CSetPosition *m = static_cast<Messages::CSetPosition *>(message);
-
-							// use m->getPosition() to tell the Graphics engine to move the entity
-						}
-						break;
+				if(Messages::CSetPosition *m = dynamic_cast<Messages::CSetPosition *>(message)) {
+					// use m->getPosition() to tell the Graphics engine to move the entity
 				}
 			}
 

@@ -158,9 +158,6 @@
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Message.h">
       <Filter>Messages\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageType.h">
-      <Filter>Messages\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.h">
       <Filter>Messages\Header Files</Filter>
     </ClInclude>

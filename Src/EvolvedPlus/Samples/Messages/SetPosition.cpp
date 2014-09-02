@@ -8,7 +8,7 @@ namespace EvolvedPlus {
 
 			IMPLEMENT_MESSAGE(CSetPosition);
 
-			CSetPosition::CSetPosition() : CMessage(EvolvedPlus::Messages::SET_POSITION) {
+			CSetPosition::CSetPosition() : CMessage() {
 
 			}
 

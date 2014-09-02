@@ -45,7 +45,6 @@
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Message.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageComparator.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageTopic.h" />
-    <ClInclude Include="..\..\Src\EvolvedPlus\Messages\MessageType.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\NotSoSmartPointer.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\Pool.h" />
     <ClInclude Include="..\..\Src\EvolvedPlus\Messages\WishList.h" />

@@ -2,7 +2,6 @@
 #define EvolvedPlus_Messages_Message_H
 
 #include "NotSoSmartPointer.h"
-#include "MessageType.h"
 #include "Pool.h"
 
 namespace EvolvedPlus {
@@ -16,11 +15,6 @@ namespace EvolvedPlus {
 		class CMessage : public NotSoSmartPointer {
 		protected:
 			/**
-			Type of this message.
-			*/
-			TMessage _type;
-
-			/**
 			Only a Message Pool can create and destroy messages, so constructor and
 			destructor are only available for it and children messages.
 			*/
@@ -29,7 +23,7 @@ namespace EvolvedPlus {
 			/**
 			Default constructor, sets the type of the message.
 			*/
-			CMessage(const TMessage &type = TMessage::UNASSIGNED);
+			CMessage();
 
 			/**
 			Default destructor.
@@ -50,11 +44,6 @@ namespace EvolvedPlus {
 			void allReferencesReleased();
 
 		public:
-			/**
-			Gets the type of this message.
-			*/
-			const TMessage &getType() const;
-
 			/**
 			Returns this instance to the Message Pool.
 			*/
