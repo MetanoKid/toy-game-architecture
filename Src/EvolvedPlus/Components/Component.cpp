@@ -5,7 +5,9 @@
 
 namespace EvolvedPlus {
 
-	IComponent::IComponent(unsigned int priority) : _entity(CEntityID::UNASSIGNED), _priority(priority) {
+	IComponent::IComponent(unsigned int priority, float updateFrequency) :
+		_entity(CEntityID::UNASSIGNED), _priority(priority), _updateFrequency(updateFrequency),
+		_currentUploadFrequency(0.0f) {
 
 	}
 
@@ -33,7 +35,25 @@ namespace EvolvedPlus {
 	}
 
 	void IComponent::doTick(float secs) {
-		// process messages
+		// based on our update frequency, do we have to tick yet?
+		if(_updateFrequency == 0.0f) {
+			processMessages();
+			tick(secs);
+		} else if(_updateFrequency > 0.0f) {
+			_currentUploadFrequency += secs;
+
+			if(_currentUploadFrequency >= _updateFrequency) {
+				processMessages();
+
+				while(_currentUploadFrequency >= _updateFrequency) {
+					tick(_updateFrequency);
+					_currentUploadFrequency -= _updateFrequency;
+				}
+			}
+		}
+	}
+
+	void IComponent::processMessages() {
 		FOR_IT_CONST(TMessages, it, _messages) {
 			// process the message and release a reference from it
 			process(*it);
@@ -42,9 +62,6 @@ namespace EvolvedPlus {
 
 		// now empty out message list, since we've processed them
 		_messages.clear();
-
-		// now that messages are processed, let user execute some behavior
-		tick(secs);
 	}
 
 	void IComponent::tick(float secs) {

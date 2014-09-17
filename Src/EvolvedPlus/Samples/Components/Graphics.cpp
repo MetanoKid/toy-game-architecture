@@ -13,7 +13,7 @@ namespace EvolvedPlus {
 
 			IMPLEMENT_COMPONENT(CGraphics);
 
-			CGraphics::CGraphics() : IComponent(2), _modelName(""), _lightComponent(NULL) {
+			CGraphics::CGraphics() : IComponent(2, TIMES_PER_SECOND(60)), _modelName(""), _lightComponent(NULL) {
 
 			}
 

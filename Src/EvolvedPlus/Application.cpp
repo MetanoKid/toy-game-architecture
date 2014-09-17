@@ -140,6 +140,38 @@ namespace EvolvedPlus {
 			_currentLevel->tick(deltaTime);
 
 			// -------------------------------------------------------
+
+			/*
+			The sample run with the sample components and data would yield this result if we printed data:
+			Component frequencies:
+				Light -> 0.0f (tick every time)
+				Graphics -> 1/60 (tick 60 times a second)
+				Perception -> 1/20 (tick 20 times a second)
+
+			[Light]         [Entity #0]     tick: 0.030000 ms
+			[Graphics]      [Entity #0]     tick: 0.016667 ms
+			[Graphics]      [Entity #1]     tick: 0.016667 ms
+			[Light]         [Entity #2]     tick: 0.030000 ms
+			[Graphics]      [Entity #2]     tick: 0.016667 ms
+
+			[Perception]    [Entity #0]     tick: 0.050000 ms
+			[Light]         [Entity #0]     tick: 0.030000 ms
+			[Perception]    [Entity #1]     tick: 0.050000 ms
+			[Graphics]      [Entity #1]     tick: 0.016667 ms
+			[Graphics]      [Entity #1]     tick: 0.016667 ms
+			[Light]         [Entity #2]     tick: 0.030000 ms
+			[Graphics]      [Entity #2]     tick: 0.016667 ms
+			[Graphics]      [Entity #2]     tick: 0.016667 ms
+
+			[Light]         [Entity #0]     tick: 0.030000 ms
+			[Graphics]      [Entity #0]     tick: 0.016667 ms
+			[Graphics]      [Entity #0]     tick: 0.016667 ms
+			[Graphics]      [Entity #1]     tick: 0.016667 ms
+			[Graphics]      [Entity #1]     tick: 0.016667 ms
+			[Light]         [Entity #2]     tick: 0.030000 ms
+			[Graphics]      [Entity #2]     tick: 0.016667 ms
+			[Graphics]      [Entity #2]     tick: 0.016667 ms
+			*/
 		}
 
 		// deactivate it, as part of its life cycle

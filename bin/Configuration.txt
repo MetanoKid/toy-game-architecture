@@ -2,5 +2,5 @@ level_evolved Level_Evolved.txt
 level_evolved_plus Level_EvolvedPlus.txt
 messages MessagePool.txt
 game_loop_max_repetitions 1
-controlled_delta_time 0.16
+controlled_delta_time 0.03
 archetypes_evolved_plus Archetypes_EvolvedPlus.txt

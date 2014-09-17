@@ -51,6 +51,24 @@ namespace EvolvedPlus {
 		*/
 		unsigned int _priority;
 
+		/**
+		Update frequency for this component. Possible frequencies:
+		    - Less than 0 means it won't be updated anytime.
+			- 0 means it will be updated every frame.
+			- More than 0 means it will be updated when enough time has passed.
+		*/
+		float _updateFrequency;
+
+		/**
+		Currently elapsed frequency.
+		*/
+		float _currentUploadFrequency;
+
+		/**
+		Processes messages delivered to this component.
+		*/
+		void processMessages();
+
 	protected:
 		/**
 		The entity this component is associated to.
@@ -67,7 +85,7 @@ namespace EvolvedPlus {
 		/**
 		Base constructor. Represents the first part of component's instantiation.
 		*/
-		IComponent(unsigned int priority = 0);
+		IComponent(unsigned int priority = 0, float updateFrequency = 0.0f);
 
 		/**
 		Base destructor, virtual as this is expected to be inherited.
@@ -144,6 +162,11 @@ namespace EvolvedPlus {
 			return lhs->getPriority() < rhs->getPriority();
 		}
 	};
+
+	/**
+	Helper macro to declare frequencies.
+	*/
+#define TIMES_PER_SECOND(times) 1.0f / times
 
 	/**
 	Child components must use these next macros to register themselves into the

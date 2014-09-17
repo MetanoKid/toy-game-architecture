@@ -10,7 +10,7 @@ namespace EvolvedPlus {
 
 			IMPLEMENT_COMPONENT(CPerception);
 
-			CPerception::CPerception() : IComponent(0), _type("") {
+			CPerception::CPerception() : IComponent(0, TIMES_PER_SECOND(20)), _type("") {
 
 			}
 
