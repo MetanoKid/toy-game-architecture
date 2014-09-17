@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <queue>
 
 #include "EntityProperties.h"
 
@@ -35,7 +36,8 @@ namespace EvolvedPlus {
 		bool active;
 
 		/**
-		Entity's components.
+		Entity's components, sorted by their priority.
+		Although it's not a sorted container, this vector will be kept sorted externally.
 		*/
 		std::vector<IComponent *> components;
 

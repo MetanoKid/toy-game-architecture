@@ -65,6 +65,9 @@ namespace EvolvedPlus {
 			component->setEntity(id);
 		}
 
+		// sort components by their priority
+		std::sort(entity.components.begin(), entity.components.end(), IComponentComparator());
+
 		// and return it
 		return entity;
 	}

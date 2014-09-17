@@ -5,7 +5,7 @@
 
 namespace EvolvedPlus {
 
-	IComponent::IComponent() : _entity(CEntityID::UNASSIGNED) {
+	IComponent::IComponent(unsigned int priority) : _entity(CEntityID::UNASSIGNED), _priority(priority) {
 
 	}
 
@@ -73,4 +73,7 @@ namespace EvolvedPlus {
 		_messages.push_back(message);
 	}
 
+	unsigned int IComponent::getPriority() const {
+		return _priority;
+	}
 }

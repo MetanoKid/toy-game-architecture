@@ -10,7 +10,7 @@ namespace EvolvedPlus {
 
 			IMPLEMENT_COMPONENT(CLight);
 
-			CLight::CLight() : IComponent(), _type("") {
+			CLight::CLight() : IComponent(1), _type("") {
 
 			}
 

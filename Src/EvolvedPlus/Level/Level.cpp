@@ -296,6 +296,9 @@ namespace EvolvedPlus {
 				component->activate();
 
 				components->push_back(component);
+
+				// re-sort by priority
+				std::sort(components->begin(), components->end(), IComponentComparator());
 			}
 		}
 	}

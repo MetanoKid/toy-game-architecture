@@ -46,6 +46,11 @@ namespace EvolvedPlus {
 		*/
 		std::string _name;
 
+		/**
+		Component's priority. Numbers closer to 0 mean higher priority.
+		*/
+		unsigned int _priority;
+
 	protected:
 		/**
 		The entity this component is associated to.
@@ -62,7 +67,7 @@ namespace EvolvedPlus {
 		/**
 		Base constructor. Represents the first part of component's instantiation.
 		*/
-		IComponent();
+		IComponent(unsigned int priority = 0);
 
 		/**
 		Base destructor, virtual as this is expected to be inherited.
@@ -124,6 +129,20 @@ namespace EvolvedPlus {
 		It's the same string for all instances of the same class.
 		*/
 		virtual const std::string &getName() const = 0;
+
+		/**
+		Gets the priority of this component.
+		*/
+		unsigned int getPriority() const;
+	};
+
+	/**
+	Helper struct which defines how to sort components by their priority.
+	*/
+	struct IComponentComparator {
+		bool operator()(const IComponent *lhs, const IComponent *rhs) {
+			return lhs->getPriority() < rhs->getPriority();
+		}
 	};
 
 	/**
