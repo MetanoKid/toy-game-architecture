@@ -154,6 +154,15 @@ For this, we'll provide a mechanism so components can ask for a pointer to anoth
 
 And finally, the last feature in this toy game architecture. In game development we always strive to minimize the amount of time it takes to perform any operation (more importantly, empty ones). We've already seen how we've transformed our components so they aren't called at all if they don't want any message. This time we're introducing a way of enabling/disabling components individually. That way, we don't need to turn off an entity but just some of its components.
 
+#### Extra features
+
+After completing the Evolved+ approach, I've added some extra features based on suggestions and things that I think are worth a try. These include:
+
+- Components' priority: they declare a priority, are sorted by it and will be updated in that order.
+- Components' variable update time: this way, we can update components only so many times a second (i.e. AI every 10 frames, Physics every 2 frames, ...).
+
+This list will grow as new features are added.
+
 ## Cloning and running
 
 This project is developed using Visual Studio 2012 and a solution file is included in it. To get working, you'll have to:
