@@ -159,7 +159,7 @@ And finally, the last feature in this toy game architecture. In game development
 After completing the Evolved+ approach, I've added some extra features based on suggestions and things that I think are worth a try. These include:
 
 - Components' priority: they declare a priority, are sorted by it and will be updated in that order.
-- Components' variable update time: this way, we can update components only so many times a second (i.e. AI every 10 frames, Physics every 2 frames, ...).
+- Components' variable update time: this way, we can update components only so many times a second (i.e. AI every 10 frames, Physics every 2 frames, ...). This allows three possibilities: don't tick anytime, tick every frame and tick with a fixed step.
 
 This list will grow as new features are added.
 
