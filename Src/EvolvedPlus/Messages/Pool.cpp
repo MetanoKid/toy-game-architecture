@@ -82,6 +82,11 @@ namespace EvolvedPlus {
 				// temporal message used to create the entry
 				CMessage *message = itConstructor->second();
 
+				// code analysis reports message can be NULL (C28182), so we should protect against this situation
+				if(!message) {
+					continue;
+				}
+
 				// remember: dynamically knowing type at run time
 				const std::type_info *type = &typeid(*message);
 
